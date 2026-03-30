@@ -57,7 +57,7 @@ The content of the lectures mainly follows *MHE* and [Michael Anderson](https://
 
 *Another note on the notes:* I create the slides with [`xaringan`](https://github.com/yihui/xaringan/wiki) in [R](cran.r-project.org). Thanks to [Grant McDermott](grantmcdermott.com/) for encouraging me to make this switch.
 
-That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
+That said, if you're starting out now, I'd go with [Quarto](https://quarto.org). I'm in the process of switching to Quarto now.
 
 **[Lecture 01: Research + R + You = 💖](https://raw.githack.com/edrubin/EC607S25/master/notes-lecture/lec01/notes.html)**
 
