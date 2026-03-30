@@ -1,17 +1,19 @@
-# EC 607, Spring 2025
+# EC 607, Spring 2026
 
-Welcome to **Economics 607: Econometrics III** (Spring 2025) at the University of Oregon, <br>taught by [Ed Rubin](https://edrub.in) and [Connor Mulholland](https://cas.uoregon.edu/directory/profiles/all/cmulhol2).
+Welcome to **Economics 607: Econometrics III** (Spring 2025) at the University of Oregon, <br>taught by [Ed Rubin](https://edrub.in) and [Shaoda Wang](https://cas.uoregon.edu/directory/economics/all/shaoda).
+
 
 ## Schedule
 
-**Lecture** Tuesdays and Thursdays, 10:00a–11:20a, [Lillis Hall 185](https://classrooms.uoregon.edu/lillis-185/)
+**Lecture** Tuesdays and Thursdays, 10:00a–11:20a, [Lillis Hall 255](https://classrooms.uoregon.edu/lillis-255/)
 
-[**Lab**](https://github.com/cmulholland217/Metrics_Lab_Spring2025) Friday 12:00p–12:50p, [Peterson Hall 102](https://classrooms.uoregon.edu/peterson-102/)
+**Lab** Friday 12:00p–12:50p, [Lillis Hall 255](https://classrooms.uoregon.edu/lillis-255/)
 
 **Office hours**
 
-- **[Ed Rubin](https://edrub.in)**: Mondays, 1p–2p and by appointment, [PLC 530](https://map.uoregon.edu/bf87c0570) ([edwardr@uoregon.edu](mailto:edwardr@uoregon.edu))
-- **[Connor Mulholland](https://cas.uoregon.edu/directory/profiles/all/cmulhol2)**: Thursdays 1p–2p, 506 PLC ([cmulhol2@uoregon.edu](mailto:cmulhol2@uoregon.edu))
+- **[Ed Rubin](https://edrub.in)**: Thursdays, 2p–3p and by appointment, [PLC 530](https://map.uoregon.edu/bf87c0570) ([edwardr@uoregon.edu](mailto:edwardr@uoregon.edu))
+- **[Shaoda Wange](https://cas.uoregon.edu/directory/economics/all/shaoda)**: Thursdays 1p–2p, 506 PLC ([shaoda@uoregon.edu](mailto:shaoda@uoregon.edu))
+
 
 ## Books
 
@@ -45,6 +47,7 @@ We will mainly use two books.
 
 **[Causal Inference: The Mixtape](https://mixtape.scunning.com)** *(Mixtape)*
 <br>*by Cunningham*
+
 
 ## Lecture slides
 
@@ -217,9 +220,11 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
 
 **Readings:** [Introduction to statistical learning](http://faculty.marshall.usc.edu/gareth-james/ISL/)
 
+
 ## Lab
 
 Connor Mulholland will walk you through R and applications of the course content. You *should attend*.
+
 
 ## Previous lab slides
 
@@ -282,21 +287,23 @@ Connor Mulholland will walk you through R and applications of the course content
 
 **Note formats:** [.html](https://raw.githack.com/edrubin/EC525S19/master/NotesLab/07RMisc/07RMisc.html) | [.html (no pause)](https://raw.githack.com/edrubin/EC525S19/master/NotesLab/07RMisc/07RMisc_NoPause.html) | [.pdf](https://raw.githack.com/edrubin/EC525S19/master/NotesLab/07RMisc/07RMisc.pdf) | [.pdf (no pause)](https://raw.githack.com/edrubin/EC525S19/master/NotesLab/07RMisc/07RMisc_NoPause.pdf) | [.Rmd](https://raw.githack.com/edrubin/EC525S19/master/NotesLab/07RMisc/07RMisc.Rmd)
 
+
 ## Problem sets
 
 Problem sets combining econometric theory and R.
 
-[Problem set 001](https://raw.githack.com/edrubin/EC607S25/master/problem-sets/001/prompts.html) due Monday, 14 April 2025 by 11:59p Pacific.
+Problem set 001
 <br>
-↳ [*Solutions*](https://raw.githack.com/edrubin/EC607S25/master/problem-sets/001/solutions.html)
+↳ *Solutions*
 
-[Problem set 002](https://raw.githack.com/edrubin/EC607S25/master/problem-sets/002/prompts.html) due Saturday, 10 May 2025 by 11:59p Pacific.
+Problem set 002
 <br>
-↳ [*Solutions*](https://raw.githack.com/edrubin/EC607S25/master/problem-sets/002/solutions.html)
+↳ *Solutions*
 
-[Problem set 003](problem-sets/003) due Tuesday, 27 May 2025 by 11:59p Pacific.
+Problem set 003
 <br>
-↳ [*Solutions*](https://raw.githack.com/edrubin/EC607S25/master/problem-sets/003/key-003.html)
+↳ *Solutions*
+
 
 ## Project
 
@@ -353,6 +360,7 @@ More information [here](project1/step2.md).
 
 [See here for more information and example topics.](project2)
 
+
 ## Practice problems
 
 1. Inference and simulation
@@ -360,6 +368,7 @@ More information [here](project1/step2.md).
 1. [Instrumental variables](https://raw.githack.com/edrubin/EC607S24/master/notes-lecture/lec09/iv-practice.pdf)
 1. Regression discontinuity
 1. Inference: Clustering and resampling
+
 
 ## Exams
 
@@ -372,12 +381,15 @@ We do not have a midterm exam.
 
 **Examples of past exams:**
 
+- [2025 in-class exam](final/final-past/final-inclass-2025.pdf)
+- [2025 take-home exam](https://raw.githack.com/edrubin/EC607S26/master/final/final-past/final-home-2025.html)
 - [2024 in-class exam](final/final-past/final-inclass-2024.pdf)
-- [2024 take-home exam](https://raw.githack.com/edrubin/EC607S25/master/final/final-past/final-home-2024.html)
+- [2024 take-home exam](https://raw.githack.com/edrubin/EC607S26/master/final/final-past/final-home-2024.html)
 - [2023 in-class exam](final/final-past/final-inclass-2023.pdf)
 - [2023 take-home exam](https://raw.githack.com/edrubin/EC607S23/master/final/final-home/final-home.html)
 - [2022 take-home exam](https://raw.githack.com/edrubin/EC607S22/master/final/exam/exam.html)
 - [2020 exam](https://raw.githack.com/edrubin/EC607S20/master/final/final.pdf)
+
 
 ## Grades
 
@@ -415,6 +427,8 @@ I will weight your grades as follows:
 
 **Metrics and R**
 
+- [Website from 2025](https://github.com/edrubin/EC607S25)
+- [Website from 2024](https://github.com/edrubin/EC607S24)
 - [Website from 2023](https://github.com/edrubin/EC607S23)
 - [Website from 2022](https://github.com/edrubin/EC607S22)
 - [Website from 2021](https://github.com/edrubin/EC607S21)
