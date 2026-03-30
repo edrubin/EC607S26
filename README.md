@@ -12,7 +12,7 @@ Welcome to **Economics 607: Econometrics III** (Spring 2025) at the University o
 **Office hours**
 
 - **[Ed Rubin](https://edrub.in)**: Thursdays, 2p–3p and by appointment, [PLC 530](https://map.uoregon.edu/bf87c0570) ([edwardr@uoregon.edu](mailto:edwardr@uoregon.edu))
-- **[Shaoda Wange](https://cas.uoregon.edu/directory/economics/all/shaoda)**: Thursdays 1p–2p, 506 PLC ([shaoda@uoregon.edu](mailto:shaoda@uoregon.edu))
+- **[Shaoda Wange](https://cas.uoregon.edu/directory/economics/all/shaoda)**: TBD, [PLC 522](https://map.uoregon.edu/0fb6cfeeb) ([shaoda@uoregon.edu](mailto:shaoda@uoregon.edu))
 
 
 ## Books
