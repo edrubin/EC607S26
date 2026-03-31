@@ -5,7 +5,7 @@ author: "Edward Rubin"
 date: ""
 output:
   xaringan::moon_reader:
-    css: ['default', 'metropolis', 'metropolis-fonts', 'my-css.css']
+    css: ['default', 'metropolis', 'metropolis-fonts', '../my-css.css']
     nature:
       highlightStyle: github
       highlightLines: true
@@ -582,7 +582,7 @@ name: syllabus
 
 .hi[Class] Attend/participate. Read assigned readings—especially papers.
 
-.hi[Lab] Practice applying our in-class content in .mono[R] with Jaichung/me. Attend.
+.hi[Lab] Practice applying our in-class content in .mono[R] with Shaoda/me. Attend.
 
 .hi[Problem sets] 3+ problem sets mixing theory and applications in .mono[R].
 

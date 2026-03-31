@@ -2,7 +2,7 @@
 # Option for R
 R_OPTS=--vanilla
 # Directories
-dir-lec = notes-lecture/
+dir-lec = notes/
 
 # Name targets -----------------------------------------------------------------
 lec01 : $(dir-lec)lec01/notes.html $(dir-lec)lec01/notes.pdf
@@ -21,7 +21,7 @@ lec10 : $(dir-lec)lec10/notes.html $(dir-lec)lec10/notes.pdf
 $(dir-lec)lec01/notes.html : $(dir-lec)lec01/notes.rmd $(dir-lec)lec01/my-css.css
 	Rscript -e "rmarkdown::render('$<')"
 $(dir-lec)lec01/notes.pdf : $(dir-lec)lec01/notes.html
-	Rscript -e "pagedown::chrome_print('$<')"
+	decktape $<?fragments=true $@
 # Lecture 02
 $(dir-lec)lec02/notes.html : $(dir-lec)lec02/notes.rmd $(dir-lec)lec02/my-css.css
 	Rscript -e "rmarkdown::render('$<')"
