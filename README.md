@@ -12,7 +12,7 @@ Welcome to **Economics 607: Econometrics III** (Spring 2025) at the University o
 **Office hours**
 
 - **[Ed Rubin](https://edrub.in)**: Thursdays, 2p–3p and by appointment, [PLC 530](https://map.uoregon.edu/bf87c0570) ([edwardr@uoregon.edu](mailto:edwardr@uoregon.edu))
-- **[Shaoda Wange](https://cas.uoregon.edu/directory/economics/all/shaoda)**: TBD, [PLC 522](https://map.uoregon.edu/0fb6cfeeb) ([shaoda@uoregon.edu](mailto:shaoda@uoregon.edu))
+- **[Shaoda Wang](https://cas.uoregon.edu/directory/economics/all/shaoda)**: TBD, [PLC 522](https://map.uoregon.edu/0fb6cfeeb) ([shaoda@uoregon.edu](mailto:shaoda@uoregon.edu))
 
 
 ## Books
@@ -294,7 +294,7 @@ More information [here](project1/step2.md).
 
 *Why?* In the course of the PhD, we want to teach you how to learn. We will not provide you with everything you need to know to be able to do research on any topic. But hopefully we provide you with a foundation and the ability to learn new things. Also: You need to learn how to communicate both in writing and in person. 
 
-**Due:** All material (including slides) is due June 5, 2025.
+**Due:** All material (including slides) is due May 24, 2026.
 
 [See here for more information and example topics.](project2)
 
@@ -312,8 +312,8 @@ More information [here](project1/step2.md).
 
 The final exam has two parts:
 
-- In class: 8:00a–10:00a on Wednesday, June 11th (2025).
-- [Take-home exam](https://raw.githack.com/edrubin/EC607S25/master/final/final-home/final-home.html): Responses due by 11:59p Pacific on Friday, June 13th, 2025.
+- In class: 8:00a–10:00a on Thursday, June 11th (2026).
+- Take-home exam: Responses due by 11:59p Pacific on Friday, June 12th, 2026.
 
 We do not have a midterm exam.
 
