@@ -1,6 +1,6 @@
 # EC 607, Spring 2026
 
-Welcome to **Economics 607: Econometrics III** (Spring 2025) at the University of Oregon, <br>taught by [Ed Rubin](https://edrub.in) and [Shaoda Wang](https://cas.uoregon.edu/directory/economics/all/shaoda).
+Welcome to **Economics 607: Econometrics III** (Spring 2026) at the University of Oregon, <br>taught by [Ed Rubin](https://edrub.in) and [Shaoda Wang](https://cas.uoregon.edu/directory/economics/all/shaoda).
 
 
 ## Schedule
@@ -267,7 +267,7 @@ Building a research project/proposal.
 
 More information [here](project1/step1.md)
 
-**Due:** 09 May 2025 (Canvas)
+**Due:** 10 May 2026 (Canvas)
 
 #### Step 2: Full project proposal
 
@@ -282,7 +282,7 @@ More information [here](project1/step1.md)
 
 More information [here](project1/step2.md).
 
-**Due:** 01 June 2025 (Canvas)
+**Due:** 01 June 2026 (Canvas)
 
 ### Project 2: Extensions
 
