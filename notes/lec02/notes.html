@@ -4,7 +4,7 @@
     <title>The Experimental Ideal</title>
     <meta charset="utf-8" />
     <meta name="author" content="Edward Rubin" />
-    <script src="notes_files/header-attrs-2.28/header-attrs.js"></script>
+    <script src="notes_files/header-attrs-2.29/header-attrs.js"></script>
     <link href="notes_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="notes_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="notes_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -50,7 +50,7 @@ Research basics, our class, and .mono[R]
 
 .hi-slate[Material:] The Rubin causal model (not mine), .orange[Chapter 2 MHE].
 --
-&lt;br&gt;.hi-purple[Assignment.sub[1]] Make sure [.mono[R]](https://www.r-project.org/) and [.mono[RStudio]](https://www.rstudio.com/products/rstudio/download/#download) are running on your computer.
+&lt;br&gt;.hi-purple[Assignment.sub[1]] Make sure [.mono[R]](https://www.r-project.org/), [.mono[RStudio]](https://www.rstudio.com/products/rstudio/download/#download), and [.mono[Quarto]](https://quarto.org/) are updated/running on your computer.
 --
 &lt;br&gt;.hi-purple[Assignment.sub[2]] Take 15 minutes to quietly think about your interests.
 --
@@ -60,7 +60,8 @@ Research basics, our class, and .mono[R]
 
 ### Future
 
-.hi-slate[Lab:] Meet Connor; start deepening R knowledge.
+.hi-slate[Seminar:] Attend seminars/talks to see different topics/perspectives/styles.
+&lt;br&gt;.hi-slate[Lab:] Talk with Shaoda; start deepening R knowledge.
 &lt;br&gt;.hi[Long run:] Deepen understandings/intuitions for causality and inference.
 
 ---
@@ -1407,6 +1408,25 @@ However, .hi[experiments] are not a panacea.
 
 ---
 layout: false
+# The experimental ideal
+## Key takeaways
+
+1\. The .hi[potential-outcomes framework] defines the .b[causal effect] for individual `\(i\)` as
+`$$\color{#FFA500}{\tau_i} = \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\text{Y}_{0i}}$$`
+
+2\. The .hi-slate[fundamental problem of causal inference:] we never observe both `\(\color{#e64173}{\text{Y}_{1i}}\)` and `\(\color{#6A5ACD}{\text{Y}_{0i}}\)` for the same individual.
+
+3\. Naively comparing treated and untreated groups confounds the .hi-orange[treatment effect] with .hi-slate[selection bias]—the groups may differ even *absent* treatment.
+
+4\. .hi[Random assignment] of `\(\text{D}_i\)` eliminates selection bias, giving us
+`$$\mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right] = \mathop{E}\left[ \color{#FFA500}{\tau_i} \right]$$`
+
+5\. .hi-slate[Covariates] serve two roles: enforce .b[conditional randomization] and .b[increase precision].
+
+6\. Experiments are not perfect—they still require assumptions—but they set the .hi[benchmark] that observational methods try to approximate.
+
+---
+layout: false
 # Table of contents
 
 .pull-left[
@@ -1439,9 +1459,9 @@ layout: false
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

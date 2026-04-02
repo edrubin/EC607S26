@@ -159,7 +159,7 @@ name: schedule
 
 ## Today
 
-- Welcome, check in, and [admin](https://github.com/edrubin/EC607S25)
+- Welcome, check in, and [admin](https://github.com/edrubin/EC607S26)
 - Research basics: *Why are we here?* .grey-vlight[*MHE*: Preface & Ch. 1]
 - Our class: *What are we doing?*
 - .mono[R]: Part of our *how* in this class: Basics.
@@ -588,7 +588,7 @@ name: syllabus
 
 .hi[No midterm!] Huzzah.
 
-.hi[Other grades] Two projects plus a two-part final!
+.hi[Other grades] Two projects plus a two-part final(e)!
 
 ---
 layout: false

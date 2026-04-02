@@ -9,19 +9,13 @@
 .Rapp.history
 *.here
 *.Rproj
+
 # Notes cache
 notes/*/slides_cache/*
 problem-sets/*/solutions_cache*
 
 # Temporary holds: Notes
-notes-lecture/lec1[1-9]*
 
 # Temporary holds: Problem sets
-final/final-class*
-problem-sets/00[4-9]*
-problem-sets/NOTES
 
 # Final exam
-final/final-home/data*
-final/final-home/ed.scss
-final/final-home/final-home.qmd
