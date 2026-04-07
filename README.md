@@ -87,96 +87,96 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
 2. What does the CEF tell us?
 3. How does least-squares regression relate to the CEF?
 
-**Note formats:** [.html](https://raw.githack.com/edrubin/EC607S25/master/notes/lec03/notes.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S25/master/notes/lec03/notes.pdf) |
-[.rmd](https://raw.githack.com/edrubin/EC607S25/master/notes/lec03/notes.rmd)
+**Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec03/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec03/notes.pdf) |
+[.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec03/notes.rmd)
 
  **Readings:** MHE chapter 3.1
 
-**[Lecture 04: Inference and Simulation](https://raw.githack.com/edrubin/EC607S25/master/notes/lec04/notes.html)**
+**[Lecture 04: Inference and Simulation](https://raw.githack.com/edrubin/EC607S26/master/notes/lec04/notes.html)**
 
 1. How do we move from populations to samples?
 2. What matters for drawing basic statistical inferences about the population?
 3. How can we learn about inference from simulation?
 4. How do we run (parallelized) simulations in R?
 
-**Note formats:** [.html](https://raw.githack.com/edrubin/EC607S25/master/notes/lec04/notes.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S25/master/notes/lec04/notes.pdf) |
-[.rmd](https://raw.githack.com/edrubin/EC607S25/master/notes/lec04/notes.rmd)
+**Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec04/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec04/notes.pdf) |
+[.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec04/notes.rmd)
 
  **Readings:** MHE chapter 3
 
-**[Lecture 05: Regression Stuff](https://raw.githack.com/edrubin/EC607S25/master/notes/lec05/notes.html)**
+**[Lecture 05: Regression Stuff](https://raw.githack.com/edrubin/EC607S26/master/notes/lec05/notes.html)**
 
 1. Saturated models
 1. When is regression causal?
 1. The conditional-independence assumption
 
-**Note formats:** [.html](https://raw.githack.com/edrubin/EC607S25/master/notes/lec05/notes.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S25/master/notes/lec05/notes.pdf) |
-[.rmd](https://raw.githack.com/edrubin/EC607S25/master/notes/lec05/notes.rmd)
+**Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec05/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec05/notes.pdf) |
+[.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec05/notes.rmd)
 
  **Readings:** Still MHE chapter 3
 
-**[Lecture 06: Controls](https://raw.githack.com/edrubin/EC607S25/master/notes/lec06/notes.html)**
+**[Lecture 06: Controls](https://raw.githack.com/edrubin/EC607S26/master/notes/lec06/notes.html)**
 
 1. Omitted-variable bias
 1. Good and bad controls
 
-**Note formats:** [.html](https://raw.githack.com/edrubin/EC607S25/master/notes/lec06/notes.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S25/master/notes/lec06/notes.pdf) |
-[.rmd](https://raw.githack.com/edrubin/EC607S25/master/notes/lec06/notes.rmd)
+**Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec06/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec06/notes.pdf) |
+[.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec06/notes.rmd)
 
  **Readings:** Still MHE chapter 3
 
-**[Lecture 07: DAGs](https://raw.githack.com/edrubin/EC607S25/master/notes/lec07/notes.html)**
+**[Lecture 07: DAGs](https://raw.githack.com/edrubin/EC607S26/master/notes/lec07/notes.html)**
 
 1. Defining graphs 
 1. Underlying theory for DAGs
 1. Building blocks
 1. Examples
 
- **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S25/master/notes/lec07/notes.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S25/master/notes/lec07/notes.pdf) |
- [.rmd](https://raw.githack.com/edrubin/EC607S25/master/notes/lec07/notes.rmd)
+ **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec07/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec07/notes.pdf) |
+ [.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec07/notes.rmd)
 <br>**Readings:** Brady Neal's book, chapters 1–3 (especially 2–3)
 
 *Extras:* [dagitty](http://dagitty.net) and [ggdag](https://ggdag.malco.io/index.html)
 
-**[Lecture 08: Matching](https://raw.githack.com/edrubin/EC607S25/master/notes/lec08/notes.html)**
+**[Lecture 08: Matching](https://raw.githack.com/edrubin/EC607S26/master/notes/lec08/notes.html)**
 
 1. Matching estimators: Nearest neighbor and kernel
 1. Propensity-score methods: Regression control, treatment-effect heterogeneity, blocking, weighting, *doubly robust*
 
- **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S25/master/notes/lec08/notes.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S25/master/notes/lec08/notes.pdf) |
- [.rmd](https://raw.githack.com/edrubin/EC607S25/master/notes/lec08/notes.rmd)
+ **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec08/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec08/notes.pdf) |
+ [.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec08/notes.rmd)
 <br>**Readings:** MHE chapter 3 + C&T section 25.4
 
-*Bonus:* [Slides outlining logistic regression](https://raw.githack.com/edrubin/EC524S25/master/lecture/006/slides.html#31).
+*Bonus:* [Slides outlining logistic regression](https://raw.githack.com/edrubin/EC524S26/master/lecture/006/slides.html#31).
 
-**[Lecture 09: Instrumental Variables](https://raw.githack.com/edrubin/EC607S25/master/notes/lec09/notes.html)**
+**[Lecture 09: Instrumental Variables](https://raw.githack.com/edrubin/EC607S26/master/notes/lec09/notes.html)**
 
 1. General research designs
 1. Instrumental variables (IV)
 1. Two-stage least squares (2SLS)
 1. Heterogeneous treatment effects and the LATE
 
- **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S25/master/notes/lec09/notes.html) | 
-[.pdf](https://raw.githack.com/edrubin/EC607S25/master/notes/lec09/notes.pdf) |
- [.rmd](https://raw.githack.com/edrubin/EC607S25/master/notes/lec09/notes.rmd)
+ **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec09/notes.html) | 
+[.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec09/notes.pdf) |
+ [.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec09/notes.rmd)
 <br>**Readings:** MHE chapter 4 + C&T sections 4.8–4.9
 <br>**Additional material:** [Paper on machine learning the first stage of 2SLS](https://edrub.in/Papers/draft-mliv.pdf)
 
-**[Lecture 10: Regression Discontinuity](https://raw.githack.com/edrubin/EC607S25/master/notes/lec10/notes.html)**
+**[Lecture 10: Regression Discontinuity](https://raw.githack.com/edrubin/EC607S26/master/notes/lec10/notes.html)**
 
 1. Sharp regression discontinuities
 1. Fuzzy regression discontinuities
 1. Graphical analyses
 
- **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S25/master/notes/lec10/notes.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S25/master/notes/lec10/notes.pdf) |
- [.Rmd](https://raw.githack.com/edrubin/EC607S25/master/notes/lec10/notes.Rmd)
+ **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec10/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec10/notes.pdf) |
+ [.Rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec10/notes.Rmd)
 <br>**Readings:** MHE chapter 6 + C&T sections 25.6
 
 **[Lecture 11: Inference: Clustering](https://raw.githack.com/edrubin/EC607S23/master/notes/11-clustering/11-clustering.html)**
