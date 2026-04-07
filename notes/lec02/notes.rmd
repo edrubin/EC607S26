@@ -972,6 +972,11 @@ $$\color{#FFA500}{\tau_i} = \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\te
 
 3\. Naively comparing treated and untreated groups confounds the .hi-orange[treatment effect] with .hi-slate[selection bias]—the groups may differ even *absent* treatment.
 
+---
+layout: false
+# The experimental ideal
+## Key takeaways
+
 4\. .hi[Random assignment] of $\text{D}_i$ eliminates selection bias, giving us
 $$\mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right] = \mathop{E}\left[ \color{#FFA500}{\tau_i} \right]$$
 
