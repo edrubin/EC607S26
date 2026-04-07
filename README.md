@@ -81,7 +81,7 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
 
  **Readings:** MHE chapter 2
 
-**[Lecture 03: Why Regression?](https://raw.githack.com/edrubin/EC607S25/master/notes/lec03/notes.html)**
+**[Lecture 03: Why Regression?](https://raw.githack.com/edrubin/EC607S26/master/notes/lec03/notes.html)**
 
 1. What's the big deal about least-squares (population) regression?
 2. What does the CEF tell us?
