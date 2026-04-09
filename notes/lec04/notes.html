@@ -4,7 +4,7 @@
     <title>Inference and Simulation</title>
     <meta charset="utf-8" />
     <meta name="author" content="Edward Rubin" />
-    <script src="notes_files/header-attrs-2.28/header-attrs.js"></script>
+    <script src="notes_files/header-attrs-2.29/header-attrs.js"></script>
     <link href="notes_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="notes_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="notes_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -281,7 +281,7 @@ $$
   \text{Y}_{i} = 1 + e^{0.5 \text{X}_{i}} + \varepsilon_i
 \end{align}`
 $$
-where `\(\text{X}_{i}\sim\mathop{\text{Uniform}}(0, 10)\)` and `\(\varepsilon_i\sim\mathop{N}(0,1)\)`.
+where `\(\text{X}_{i}\sim\mathop{\text{Uniform}}(0, 10)\)` and `\(\varepsilon_i\sim\mathop{N}(0,15^2)\)`.
 
 ---
 ## Data-generating process
@@ -477,7 +477,7 @@ sim_list = map(1:1e4, fun_iter)
 Parallelized 10,000 iterations
 
 
-```r
+``` r
 # Packages
 p_load(purrr, furrr)
 # Set options
@@ -620,7 +620,7 @@ flex_iter = function(iter, γ = 0, δ = 1, n = 30) {
 Now we run our new function `flex_iter()` 10,000 times
 
 
-```r
+``` r
 # Packages
 p_load(purrr, furrr)
 # Set options
@@ -730,9 +730,9 @@ exclude: true
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
