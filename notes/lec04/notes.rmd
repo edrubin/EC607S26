@@ -172,8 +172,8 @@ Inference
 ### Upcoming
 
 Lab: TBD
-<br>Problem set 002 coming soon.
-<br>Project 1, step 1 due on May 9.
+<br>Problem set \#1 coming soon.
+<br>Project 1, step 1 due on May 10.
 
 ---
 layout: true

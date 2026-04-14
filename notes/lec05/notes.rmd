@@ -177,8 +177,8 @@ Regression and causality
 
 ## Upcoming
 
-Project, step 1 (May 9)
-<br>Assignment \#2
+Project, step 1 (May 10)
+<br>Assignment \#1
 
 ---
 name: advice
