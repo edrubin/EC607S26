@@ -18,13 +18,17 @@ format:
 
 Due Sunday, 19 April 2026 by 11:59p Pacific.
 
+
 ## Part 0: Take a minute
 
 **0.1** (5 points) Take 15 minutes to think about (1) your research interests and (2) how you are doing. No screens. No paper. No nothing. Just sit somewhere (ideally not PLC) quietly and think.
 
 *To submit:* Where and when did you complete this task?
   
+
 ## Part 1: Fun with functions
+
+**Important:** For Parts 1 and 2, you should try to write the code yourself. I know that AI can write an OLS function. The point of getting a PhD is to learn what's going on under the hood (and to learn how to learn what's going on under the hood). So... do your own work here.
 
 **1.1** (15 points) Write a function that uses OLS to estimate the **coefficients** of a linear regression model.
 
@@ -61,7 +65,7 @@ beta = matrix(c(3, 3, 3), nrow = 3, ncol = 1)
 # Define the X matrix
 X = matrix(data = rnorm(200), nrow = 100, ncol = 2)
 # Define the disturbance
-u = runif(100)
+u = runif(100, min = -1, max = 1)
 # Create a column of ones
 ones = matrix(1, nrow = 100, ncol = 1)
 # Define the y matrix
@@ -71,6 +75,7 @@ test_lm = lm(y ~ X)
 summary(test_lm)
 # TODO Now run your function
 ```
+
 
 ## Part 2: A simulation
 
@@ -108,12 +113,12 @@ n = 50
 # Generate the population (starting with the "unobserved" disturbances)
 sample_df = tibble(
   id = 1:n,
-  u = runif(n),
-  v = runif(n),
-  w = runif(n),
+  u = runif(n, min = -1, max = 1),
+  v = runif(n, min = -1, max = 1),
+  w = runif(n, min = -1, max = 1),
   epsilon = v + w,
-  x1 = runif(n),
-  x2 = runif(n),
+  x1 = runif(n, min = -1, max = 1),
+  x2 = runif(n, min = -1, max = 1),
   x3 = u + w,
   y = 0 + 1 * x1 + 2 * x2 + 3 * x3 + epsilon
 )
@@ -158,8 +163,21 @@ _Remember:_ If this simulation takes a long time to run, you can parallelize wit
 
 *Hint:* `ggplot2` is probably a good idea here. You can use `geom_histogram()` or `geom_density()` to plot the distributions of the coefficient estimates.
 
-**2.4** (5 points) Now that you have the results of the simulation, compare them to the true values of the parameters. How well OLS working for each of the parameters?
+**2.4** (5 points) Now that you have the results of the simulation, compare them to the true values of the parameters. How well is OLS working for each of the parameters?
 
 **2.5** (10 points) Why is OLS biased for $\beta_3$? Explain the intuition *and* with simple math. Bonus if you can show it with a graph too.
 
 **2.6** (5 points) How biased is OLS for $\beta_3$? Answer *with math* (not with the data from the simulation). I'm fine with you using expectations or probability limits. Invoke assumptions if you need them; just make sure you are clear about the assumptions you make.
+
+**2.7** (5 points) Provide an example of a real-world research question where this kind of bias might be a problem. Explain the intuition behind the bias in this context and how it might affect the conclusions of the research.
+
+**2.8** (5 points) Re-run the simulation with 500 observations per iteration. Does the bias in $\hat{\beta}_3$ get any better or worse? Explain the intuition behind the results.
+
+
+## Part 3: The part with AI
+
+**3.1** (10 points) Now that you've done all the work above, ask an AI agent (preferably Claude Code or ChatGPT/Codex) to write the code for (1) the OLS function and (2) the simulation. (Also note which AI you used and the exact prompt you used to get the code.)
+
+**3.2** (5 points) Compare the AI-generated code to your code: What's different? Does the AI's approach seem better/worse in any way? Do the AI-based _results_ differ?
+
+**3.3** (5 points) What does the AI-comparison exercise above lead you to think about the role of AI in research?

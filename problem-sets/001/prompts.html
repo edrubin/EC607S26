@@ -2372,6 +2372,7 @@ window.Quarto = {
 </section>
 <section id="part-1-fun-with-functions" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-fun-with-functions">Part 1: Fun with functions</h2>
+<p><strong>Important:</strong> For Parts 1 and 2, you should try to write the code yourself. I know that AI can write an OLS function. The point of getting a PhD is to learn what’s going on under the hood (and to learn how to learn what’s going on under the hood). So… do your own work here.</p>
 <p><strong>1.1</strong> (15 points) Write a function that uses OLS to estimate the <strong>coefficients</strong> of a linear regression model.</p>
 <p>The function should</p>
 <ul>
@@ -2397,7 +2398,7 @@ window.Quarto = {
 <span id="cb2-5"><a href="#cb2-5"></a><span class="co"># Define the X matrix</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="fu">rnorm</span>(<span class="dv">200</span>), <span class="at">nrow =</span> <span class="dv">100</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="co"># Define the disturbance</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a>u <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span>
+<span id="cb2-8"><a href="#cb2-8"></a>u <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="co"># Create a column of ones</span></span>
 <span id="cb2-10"><a href="#cb2-10"></a>ones <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">100</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
 <span id="cb2-11"><a href="#cb2-11"></a><span class="co"># Define the y matrix</span></span>
@@ -2437,12 +2438,12 @@ y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i} + \epsilon_i
 <span id="cb3-8"><a href="#cb3-8"></a><span class="co"># Generate the population (starting with the &quot;unobserved&quot; disturbances)</span></span>
 <span id="cb3-9"><a href="#cb3-9"></a>sample_df <span class="ot">=</span> <span class="fu">tibble</span>(</span>
 <span id="cb3-10"><a href="#cb3-10"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
-<span id="cb3-11"><a href="#cb3-11"></a>  <span class="at">u =</span> <span class="fu">runif</span>(n),</span>
-<span id="cb3-12"><a href="#cb3-12"></a>  <span class="at">v =</span> <span class="fu">runif</span>(n),</span>
-<span id="cb3-13"><a href="#cb3-13"></a>  <span class="at">w =</span> <span class="fu">runif</span>(n),</span>
+<span id="cb3-11"><a href="#cb3-11"></a>  <span class="at">u =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>),</span>
+<span id="cb3-12"><a href="#cb3-12"></a>  <span class="at">v =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>),</span>
+<span id="cb3-13"><a href="#cb3-13"></a>  <span class="at">w =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>),</span>
 <span id="cb3-14"><a href="#cb3-14"></a>  <span class="at">epsilon =</span> v <span class="sc">+</span> w,</span>
-<span id="cb3-15"><a href="#cb3-15"></a>  <span class="at">x1 =</span> <span class="fu">runif</span>(n),</span>
-<span id="cb3-16"><a href="#cb3-16"></a>  <span class="at">x2 =</span> <span class="fu">runif</span>(n),</span>
+<span id="cb3-15"><a href="#cb3-15"></a>  <span class="at">x1 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>),</span>
+<span id="cb3-16"><a href="#cb3-16"></a>  <span class="at">x2 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>),</span>
 <span id="cb3-17"><a href="#cb3-17"></a>  <span class="at">x3 =</span> u <span class="sc">+</span> w,</span>
 <span id="cb3-18"><a href="#cb3-18"></a>  <span class="at">y =</span> <span class="dv">0</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">*</span> x1 <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> x2 <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> x3 <span class="sc">+</span> epsilon</span>
 <span id="cb3-19"><a href="#cb3-19"></a>)</span>
@@ -2476,9 +2477,17 @@ y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i} + \epsilon_i
 <p><em>Remember:</em> If this simulation takes a long time to run, you can parallelize with the <code>future</code> and <code>furrr</code> packages.</p>
 <p><strong>2.3</strong> (10 points) Summarize the results of the simulation with (1) a numerical summary (the mean coefficient estimate for each of the four parameters) and (2) a histogram or density plot of the coefficient estimates (separated by parameter).</p>
 <p><em>Hint:</em> <code>ggplot2</code> is probably a good idea here. You can use <code>geom_histogram()</code> or <code>geom_density()</code> to plot the distributions of the coefficient estimates.</p>
-<p><strong>2.4</strong> (5 points) Now that you have the results of the simulation, compare them to the true values of the parameters. How well OLS working for each of the parameters?</p>
+<p><strong>2.4</strong> (5 points) Now that you have the results of the simulation, compare them to the true values of the parameters. How well is OLS working for each of the parameters?</p>
 <p><strong>2.5</strong> (10 points) Why is OLS biased for <span class="math inline">\(\beta_3\)</span>? Explain the intuition <em>and</em> with simple math. Bonus if you can show it with a graph too.</p>
 <p><strong>2.6</strong> (5 points) How biased is OLS for <span class="math inline">\(\beta_3\)</span>? Answer <em>with math</em> (not with the data from the simulation). I’m fine with you using expectations or probability limits. Invoke assumptions if you need them; just make sure you are clear about the assumptions you make.</p>
+<p><strong>2.7</strong> (5 points) Provide an example of a real-world research question where this kind of bias might be a problem. Explain the intuition behind the bias in this context and how it might affect the conclusions of the research.</p>
+<p><strong>2.8</strong> (5 points) Re-run the simulation with 500 observations per iteration. Does the bias in <span class="math inline">\(\hat{\beta}_3\)</span> get any better or worse? Explain the intuition behind the results.</p>
+</section>
+<section id="part-3-the-part-with-ai" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-the-part-with-ai">Part 3: The part with AI</h2>
+<p><strong>3.1</strong> (10 points) Now that you’ve done all the work above, ask an AI agent (preferably Claude Code or ChatGPT/Codex) to write the code for (1) the OLS function and (2) the simulation. (Also note which AI you used and the exact prompt you used to get the code.)</p>
+<p><strong>3.2</strong> (5 points) Compare the AI-generated code to your code: What’s different? Does the AI’s approach seem better/worse in any way? Do the AI-based <em>results</em> differ?</p>
+<p><strong>3.3</strong> (5 points) What does the AI-comparison exercise above lead you to think about the role of AI in research?</p>
 </section>
 
 </main>

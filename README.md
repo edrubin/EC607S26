@@ -24,7 +24,6 @@ Problem sets combining econometric theory and R.
 ↳ *Solutions*
 
 
-
 ## Books
 
 ### Main texts
