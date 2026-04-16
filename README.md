@@ -15,6 +15,16 @@ Welcome to **Economics 607: Econometrics III** (Spring 2026) at the University o
 - **[Shaoda Wang](https://cas.uoregon.edu/directory/economics/all/shaoda)**: TBD, [PLC 522](https://map.uoregon.edu/0fb6cfeeb) ([shaoda@uoregon.edu](mailto:shaoda@uoregon.edu))
 
 
+## Problem sets
+
+Problem sets combining econometric theory and R.
+
+[Problem set 001](https://raw.githack.com/edrubin/EC607S26/master/problem-sets/001/prompts.html) due Sunday, 19 April 2026 by 11:59 PM.
+<br>
+↳ *Solutions*
+
+
+
 ## Books
 
 ### Main texts
@@ -224,23 +234,6 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
 ## Lab
 
 Shaoda Wang will walk you through R and applications of the course content. You *should attend*.
-
-
-## Problem sets
-
-Problem sets combining econometric theory and R.
-
-Problem set 001
-<br>
-↳ *Solutions*
-
-Problem set 002
-<br>
-↳ *Solutions*
-
-Problem set 003
-<br>
-↳ *Solutions*
 
 
 ## Project
