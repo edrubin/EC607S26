@@ -32,8 +32,9 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
   - Quantile regression
   - Non-parametric
 - Dynamics and spillovers
-- ML-assisted heterogeneous effects
+- ML-assisted heterogeneous effects (e.g., causal forests and double/debiased machine learning)
 - Decompositions (e.g., Kitagawa/Blinder-Oaxaca)
+- Measurement error
 
 **Inference**
 
@@ -45,17 +46,4 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
 
 | Topic | Person |
 |-------|--------|
-| Decompositions (e.g., Kitagawa/Blinder-Oaxaca) | Sanjay Roy |
-| ML-assisted heterogeneous treatment effects | Hanqing Wang |
-| Dynamics and spillovers | Cindy Yuan |
-| Variable-Elimination as an Exact Inference Approach in Probabilistic Graphical Modeling (DAGS/Bayesian Networks) | Chris Antwi |
-| Fixed and random effects estimators | Leslie Wooten |
-| Staggered difference-in-differences | Shaoda Wang |
-| Synthetic difference-in-differences | Jules Netze |
-| Triple differences | David Conover |
-| Event studies | Pilar Mullican |
-| Case-crossover designs | Jon Knudson |
-| High-frequency identification methods for monetary policy shocks | Sonan Memon |
-| Structural VAR | Herbert Xin |
-| Spatially clustered standard errors | Haoyu Xu |
-| Wild clustered bootstrap | Kehan Zhang |
+| Place holder | Place holder |
