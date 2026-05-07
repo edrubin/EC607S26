@@ -1,19 +1,32 @@
-# Problem set 2
+---
+title: "Problem set 2: CIA, DAGs, and matching"
+subtitle: "EC607"
+editor:
+  render-on-save: true
+format:
+  html:
+    toc: false
+    number-sections: false
+    code-line-numbers: true
+    embed-resources: true
+    self-contained: true
+    theme:
+    - cosmo
+    - ed.scss
+---
 
 Due Tuesday, 12 May (2026) by 11:59 PM.
-
-CIA, DAGs, and Matching
 
 
 ## Goal
 
-**README:** In this problem set, we will attempt to estimate the effect of school construction on reducing the Black-White income gap in the United States. Specifically, we will focus on the causal effect of the [Rosenwald schools](https://en.wikipedia.org/wiki/Rosenwald_School)—a large set of schools constructed in the early 1900s in rural counties in the South to give Black families better educational opportunities (relative to prevailing norms of discrimination and underfunding). The schools were funded by Julius Rosenwald and Booker T. Washington. 
+**README:** In this problem set, we will attempt to estimate the effect of school construction on reducing the Black-White income gap in the United States. Specifically, we will focus on the causal effect of the [Rosenwald schools](https://en.wikipedia.org/wiki/Rosenwald_School)—a large set of schools constructed in the early 1900s in rural counties in the South to give Black families better educational opportunities (relative to prevailing norms of discrimination and underfunding). The schools were funded by Julius Rosenwald and Booker T. Washington.
 
 [Aaronson and Mazumder have a really cool paper](https://www.jstor.org/stable/pdf/10.1086/662962.pdf) on how the Rosenwald schools helped close the Black-White education gap in the South. Whereas Aaronson and Mazumder use microdata and focus on education gaps (and find large and significant increases in education for rural Black children who had access to Rosenwald schools), we are going to look a the *income gap* using *aggregated data*.
 
 We will walk through several regression specifications and empirical strategies—asking whether we any of these approaches plausibly identifies the causal effect of Rosenwald schools on the racial income gap.
 
-More broadly, we want to 
+More broadly, we want to
 
 - refresh the topics you learned in previous metrics course
 - refresh/build/strengthen your `R` abilities
@@ -51,7 +64,8 @@ The dataset focus on ten states that (unsuccessfully) attempted to secede (South
 
 ## Section 1: General regression analysis and the CIA
 
-**01** Load whichever packages you think you'll want—and the dataset [`data-003.csv`](https://raw.githack.com/edrubin/EC607S25/master/problem-sets/003/data-003.csv). At a minimum you'll want something that makes pretty figures (e.g., `ggplot2`) and `fixest`.
+**01** Load whichever packages you think you'll want—and the dataset [`data-003.csv`](https://raw.githack.com/edrubin/EC607S26/master/problem-sets/002/data-002.csv).
+At a minimum you'll want something that makes pretty figures (e.g., `ggplot2`) and `fixest`.
 
 **02** Create a few figures that illustrate the main variables and their relationships. Specifically, I'd like to see:
 
@@ -65,17 +79,17 @@ The dataset focus on ten states that (unsuccessfully) attempted to secede (South
 
 For this first regression, just regress the income gap on the indicator for whether the county had a Rosenwald school. Report your results and briefly discuss the identifying assumptions. (What assumption would be necessary to give these estimates a causal interpretation?)
 
-**04** Now add a state fixed effect. Report your findings and discuss the conditional independence assumption required by the regression (for a causal interpretation).
+**04** Now add a state fixed effect. Report your findings. Further, write down the conditional independence assumption (CIA) required by the regression (for a causal interpretation). Use the potential outcomes framework for this definition of the CIA. Once you have formally written the CIA out, briefly discuss it.
 
 *Hint:* For a `state` fixed effect in the `feols()` function from the `fixest` package: `feols(y ~ x | state, data = fake_df)`
 
 **05** Now add two controls from 1860: the percent of the population that was enslaved in 1860 (`pct_pop_enslaved_1860`) and the total county population in 1860 (`pop_total_1860`). Report your results. (You should still have a state fixed effect.)
 
-**06** Does the change in the estimated coefficients on `had_rosenwald_school` from **04** and **06** match what you would have guessed if these new variables (`pct_pop_enslaved_1860` and `pop_total_1860`) were causing bias? Explain.
+**06** Does the change in the estimated coefficients on `had_rosenwald_school` from **04** and **05** match what you would have guessed if these new variables (`pct_pop_enslaved_1860` and `pop_total_1860`) were causing bias? Explain.
 
-**07** What is the required conditional independence assumption required by **06**? Do you think it is valid? Explain your answer using a DAG (and discuss which variables should and should not be used as controls).
+**07** Draw a DAG including *Rosenwald school*, the *income gap*, *percent population enslaved in 1860*, *1860 population*, *2010 population*, and any unobserved confounders you think matter (*e.g.*, 1860 wealth, post-Reconstruction violence, modern labor-market conditions). Use *d-separation* to identify a sufficient adjustment set, and explain why your set is minimal.
 
-**08** What are your thoughts on adding the county's 2010 population (Black, White, and/or total) as a control in the regression? Will these controls help or hurt our CIA? Explain (maybe use a DAG?).
+**08** What are your thoughts on adding the county's 2010 population (Black, White, and/or total) as a control in the regression? Will these controls help or hurt our CIA? Explain (your DAG should help here).
 
 
 ## Section 2: Matching
@@ -103,17 +117,17 @@ Once you find these distances, create a nice histogram of the treated units' dis
 
 To estimate propensity scores, we'll use a logistic regression.
 
-You can use `feglm()` from the `fixest` package (or your favorite logistic-regression estimator) to estimate a logistic regression, for example
+You can use `femlm()` from the `fixest` package (or your favorite logistic-regression estimator) to estimate a logistic regression, for example
 
 `femlm(binary_y ~ I(x1^2) + I(x2^2) + x1 + x2 + x1:x2, data = fake_df, family = 'logit')`
 
-will estimate a logistic regression (notice the argument `family = 'logit`). The example code above also reminds you how to square variables and take interactions.
+will estimate a logistic regression (notice the argument `family = 'logit'`). The example code above also reminds you how to square variables and take interactions.
 
-You need to estimate a logistic regression as a function of `pct_pop_enslaved_1860` and `pop_total_1860`, their squares, and their interaction. 
+You need to estimate a logistic regression as a function of `pct_pop_enslaved_1860` and `pop_total_1860`, their squares, and their interaction.
 
-Finally, you can grab those beautiful (estimated) propensity scores from your saved regression using `saved_reg$fitted.values` (where `saved_reg` is my saved regression object output from `feglm`). You'll want to add those (estimated) propensity scores to your dataset.
+Finally, you can grab those beautiful (estimated) propensity scores from your saved regression using `saved_reg$fitted.values` (where `saved_reg` is my saved regression object output from `femlm`). You'll want to add those (estimated) propensity scores to your dataset.
 
-**14** Estimate a regression where you control for the original variables **and** for the estimated propensity scores. Does anything change? Report your results.
+**14** Estimate a regression where you control for the original variables **and** for the estimated propensity scores. Does anything change? Why? Report your results.
 
 **15** Wait! How does overlap look? Make a figure to document the overlap.
 
@@ -123,10 +137,41 @@ Finally, you can grab those beautiful (estimated) propensity scores from your sa
 
 **18** Repeat the regression with overlap enforced. Report your results. Did anything change?
 
-**19** Now weight your regression using the (inverse) propensity scores (as discussed in lecture). Stick with the overlap-enforced sample. Report your results. Did anything change?
+**19** When weighting regressions using propensity scores, we have multiple options for weighting schemes, *e.g.*,
 
-**20** Maybe we need a doubly robust approach. Estimate the "controlling for stuff" regression from **06** *for each block*, where blocks are based upon observations' propensity scores.
+- weighting scheme 1: $w_i = D_i / p(x_i) + (1 - D_i) / (1 - p(x_i))$
+- weighting scheme 2: $w_i = D_i + (1 - D_i) p(x_i) / (1 - p(x_i))$
 
-*Note:* If you're using state fixed effects with small-ish blocks, then some of the blocks may not have variation in `had_rosenwald_school`. For the sake of making your life easier, you can drop the state fixed effects or make the blocks bigger.
+where $D_i$ is a treatment indicator and $p(x_i)$ references individual $i$'s propensity score.
 
-Report each block's estimated treatment effect and the ATE.
+Which weighting scheme gives the ATE and which gives the ATT/TOT? Show your work (*i.e.*, derive the formula for each weighting scheme).
+
+*Hint:* As we did in class, think about $E[w_i Y_i | D_i = 1]$ and $E[w_i Y_i | D_i = 0]$.
+
+**20** Now weight your prior regression using the two different propensity scores weighting schemes from **19**. Stick with the overlap-enforced sample. Report your results. Did anything change from the prior results to these results? Do the ATE and ATT estimates differ?
+
+**Important:** Don't forget to re-scale the weights so that they sum to 1.
+
+**21** Maybe we need a doubly robust approach. We're going to use a fairly simple doubly robust approach that's similar to Wooldridge's *Inverse-Probability-Weighted Regression Adjustment*.
+
+We're basically (a) using the propensity score weighting from above (weighting scheme 1) and (b) using the specification from you propensity-score estimation as controls. There are "fancier" (more robust) approaches to doubly robust estimation that you can explore on your own.
+
+Specifically, estimate a linear regression where you regress the county income gap on
+
+- the Rosenwald indicator, `pct_pop_enslaved_1860`, and `pop_total_1860`, their squares (except for the indicator), and all of their two-way interactions,
+- state fixed effects.
+
+while using the weighting scheme 1 from above (`feols` has a `weights` argument).
+
+
+## Section 4: Zooming out
+
+**22** **SUTVA** Counties are spatially adjacent, and markets (labor, goods, etc.) do not necessarily respect arbitrary boundaries. If Rosenwald schools affect their own counties centuries later, it seems plausible that Rosenwald schools might affect neighboring counties' labor markets a century later as well. With these ideas in mind, discuss why/how we might need to worry about SUTVA (violations). How might SUTVA violations here affect our estimates?
+
+**23** **Inference** Discuss one way in which "standard" OLS inference may be affected/violated by our nearest-neighbor-matching approach.
+
+**24** **Inference** Discuss one way in which "standard" OLS inference does not capture all of the uncertainty in propensity-score-based estimation.
+
+**25** **Selection into treatment** Rosenwald schools involved local communities applying to receive a school and providing matching funds. Given this funding process, what unobservables likely drive selection into treatment? Which direction do you think the bias would push?
+
+**26** **Finale** Combine your various treatment-effect estimations into a single table. If you had to give a policymaker a single number, which estimate would you choose and why?

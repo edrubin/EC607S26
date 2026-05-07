@@ -20,8 +20,12 @@ Welcome to **Economics 607: Econometrics III** (Spring 2026) at the University o
 Problem sets combining econometric theory and R.
 
 [Problem set 001](https://raw.githack.com/edrubin/EC607S26/master/problem-sets/001/prompts.html) due Sunday, 19 April 2026 by 11:59 PM.
-<br>
-↳ *Solutions*
+<!--<br>
+↳ *Solutions*-->
+
+[Problem set 002](https://raw.githack.com/edrubin/EC607S26/master/problem-sets/002/prompts.html) due Tuesday, 12 May 2026 by 11:59 PM.
+<!--<br>
+↳ *Solutions*-->
 
 
 ## Books

@@ -17,6 +17,7 @@ problem-sets/*/solutions_cache*
 # Temporary holds: Notes
 
 # Temporary holds: Problem sets
-problem-sets/00[2-9]*
+problem-sets/00[3-9]*
+problem-sets/002/key*
 
 # Final exam
