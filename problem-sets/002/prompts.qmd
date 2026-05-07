@@ -64,7 +64,7 @@ The dataset focus on ten states that (unsuccessfully) attempted to secede (South
 
 ## Section 1: General regression analysis and the CIA
 
-**01** Load whichever packages you think you'll want—and the dataset [`data-003.csv`](https://raw.githack.com/edrubin/EC607S26/master/problem-sets/002/data-002.csv).
+**01** Load whichever packages you think you'll want—and the dataset [`data-002.csv`](https://raw.githack.com/edrubin/EC607S26/master/problem-sets/002/data-002.csv).
 At a minimum you'll want something that makes pretty figures (e.g., `ggplot2`) and `fixest`.
 
 **02** Create a few figures that illustrate the main variables and their relationships. Specifically, I'd like to see:
