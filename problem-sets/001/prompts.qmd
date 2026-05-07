@@ -1,7 +1,6 @@
 ---
 title: "Problem set 1"
 subtitle: "EC607"
-# author: "Edward Rubin"
 editor:
   render-on-save: true
 format:
@@ -24,7 +23,7 @@ Due Sunday, 19 April 2026 by 11:59p Pacific.
 **0.1** (5 points) Take 15 minutes to think about (1) your research interests and (2) how you are doing. No screens. No paper. No nothing. Just sit somewhere (ideally not PLC) quietly and think.
 
 *To submit:* Where and when did you complete this task?
-  
+
 
 ## Part 1: Fun with functions
 
@@ -41,7 +40,7 @@ Your function should only use matrix operations (e.g., `%*%`) and basic summary 
 
 *Hint:* Remember that you can create a column matrix of ones using `matrix(1, nrow = n, ncol = 1)` (where `n` is the number of rows you want). You can also use `cbind()` to combine matrices by columns (`cbind`) or rows (`rbind`). There's an example of `cbind()` below in **1.2**.
 
-*Recall:* The function named `function()` allows you to write a function. For example, 
+*Recall:* The function named `function()` allows you to write a function. For example,
 
 ```{r}
 #| eval: false
@@ -97,8 +96,8 @@ where
 - $x_{3i} = u_i + w_i$
 - $\epsilon_i = v_i + w_i$
 - and $w_i \sim \text{Unif}(-1, 1)$, $u_i \sim \text{Unif}(-1, 1)$, and $v_i \sim \text{Unif}(-1, 1)$
-  
-I'll get you started. 
+
+I'll get you started.
 
 ```{r}
 #| eval: false

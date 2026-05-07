@@ -1,8 +1,9 @@
-# Problem set 3
+# Problem set 2
 
-Due Tuesday, 27 May (2025) by 11:59 PM.
+Due Tuesday, 12 May (2026) by 11:59 PM.
 
 CIA, DAGs, and Matching
+
 
 ## Goal
 
@@ -17,6 +18,7 @@ More broadly, we want to
 - refresh the topics you learned in previous metrics course
 - refresh/build/strengthen your `R` abilities
 - build intuition about causality related to the regression, CIA, and matching lectures.
+
 
 ## Data
 
@@ -46,7 +48,8 @@ The table below describes each variable in the dataset.
 
 The dataset focus on ten states that (unsuccessfully) attempted to secede (South Carolina, Mississippi, Florida, Alabama, Georgia, Louisiana, Texas, Virginia, North Carolina, and Tennessee). Each of these states was a "slave state" in 1860, *i.e.*, they allowed Black enslavement.
 
-### Section 1: General regression analysis and the CIA
+
+## Section 1: General regression analysis and the CIA
 
 **01** Load whichever packages you think you'll want—and the dataset [`data-003.csv`](https://raw.githack.com/edrubin/EC607S25/master/problem-sets/003/data-003.csv). At a minimum you'll want something that makes pretty figures (e.g., `ggplot2`) and `fixest`.
 
@@ -74,7 +77,8 @@ For this first regression, just regress the income gap on the indicator for whet
 
 **08** What are your thoughts on adding the county's 2010 population (Black, White, and/or total) as a control in the regression? Will these controls help or hurt our CIA? Explain (maybe use a DAG?).
 
-### Section 2: Matching
+
+## Section 2: Matching
 
 In this section, we are going to use two variables to match observations: `pct_pop_enslaved_1860` and `pop_total_1860`.
 
@@ -92,7 +96,8 @@ Once you find these distances, create a nice histogram of the treated units' dis
 
 **12** Is the estimator in **10** estimating an ATE or some other treatment effect? Explain (and name it if it is not the ATE).
 
-### Section 3: Propensity-score methods
+
+## Section 3: Propensity-score methods
 
 **13** Let's try some propensity-score matching. Step 1: Estimate some propensity scores!
 
@@ -125,4 +130,3 @@ Finally, you can grab those beautiful (estimated) propensity scores from your sa
 *Note:* If you're using state fixed effects with small-ish blocks, then some of the blocks may not have variation in `had_rosenwald_school`. For the sake of making your life easier, you can drop the state fixed effects or make the blocks bigger.
 
 Report each block's estimated treatment effect and the ATE.
-

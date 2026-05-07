@@ -1,10 +1,12 @@
 # Agents
 
+
 ## General background
 
 *What?* This repository contains the materials for a doctoral econometrics course (10-weeks in length) at the University of Oregon, taught by [Ed Rubin](https://edrub.in). The course is the third course in a three-course sequence. The preceding courses covered central theory for probility and statistics and classical linear regression. This course focuses on more modern topics in econometrics, especially focused on cross-sectional causal inference.
 
 *Who?* The students in the course are primarily economics PhD students.
+
 
 ## Repo layout
 
@@ -26,4 +28,3 @@ At the root of the repository,
 - `./AGENTS.md` (this file) provides a brief description of this course and its repository to help agents understand the context of this repository and its contents.
 
 There are also various git-related files and folders that follow standard usage (e.g., `./.gitignore` and `./.git/`).
-
