@@ -46,4 +46,4 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
 
 | Topic | Person |
 |-------|--------|
-| Place holder | Place holder |
+| Measurement error | Scheryll Ouma |
