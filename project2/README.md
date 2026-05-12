@@ -1,16 +1,19 @@
 # Project 2: Extensions
 
+
 ## Assignment
 
 - Choose a topic related to causal inference–that we do not cover in class.
 - Write a summary/tutorial (think: wiki or blog) of the topic that includes (a) the math behind the approach and (b) an empirical example (with data, code, visualizations, and/or tables).
 - Write a **five-minute** (five-slide) presentation that summarizes the topic to your classmates.
 
-**Due:** All materials (including slides) are due by the end of the day on June 5, 2026.
+**Due:** All materials (including slides) are due by the end of the day on May 24, 2026.
+
 
 ## Why?
 
 In the course of the PhD, we want to teach you how to learn. We will not provide you with everything you need to know to be able to do research on any topic. But hopefully we provide you with a foundation and the ability to learn new things. Also: You need to learn how to communicate both in writing and in person. 
+
 
 ## Ideas for topics
 
@@ -41,6 +44,7 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
 - Wild clustered bootstrap
 - Spatially clustered standard errors
 - Multiple-hypothesis testing
+
 
 ## Claimed topics
 
