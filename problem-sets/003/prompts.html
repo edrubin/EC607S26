@@ -2365,7 +2365,7 @@ window.Quarto = {
 </section>
 <section id="section-2-data-time" class="level2">
 <h2 class="anchored" data-anchor-id="section-2-data-time">Section 2: Data time!</h2>
-<p><span class="num"></span> Download and load the <a href="https://github.com/edrubin/EC607S26/problem-sets/003/data/ashenfelter-krueger-1994.dta">data</a>.</p>
+<p><span class="num"></span> Download and load the <a href="https://github.com/edrubin/EC607S26/blob/master/problem-sets/003/data/ashenfelter-krueger-1994.dta">data</a>.</p>
 <p><em>Note:</em> The <code>dta</code> file I am providing you is a cleaned version of the dataset from <a href="https://www.mfilipski.com/pubgoods.html">Mateusz Filipski</a>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p><em>Hint:</em> Use <code>read_dta</code> from <code>haven</code> to read the <code>.dta</code> file.</p>
 <p><em>Another hint:</em> Use <code>str</code> on the dataset you load to see the structure of the data, including the labels (descriptions) for each of the variables.</p>
@@ -2392,7 +2392,7 @@ window.Quarto = {
 <p><em>Note:</em> Stick with the heteroskedasticity-robust standard-error estimator for all subsequent analyses.</p>
 <p><span class="num"></span> Ashenfelter and Krueger explicitly mention concerns about selection bias from family-level variation (<span class="math inline">\(\mu_i\)</span> in their model). Why don’t we need a family fixed effect if Ashenfelter and Krueger are trying to estimate <em>within-family</em> effects (<em>i.e.</em>, trying to hold family constant)?</p>
 <p><span class="num"></span> <em>Why</em> are Ashenfelter and Krueger concerned about measurement error?</p>
-<p><span class="num"></span> Load the <code>twins90.csv</code> dataset into R. This dataset has several new variables. Importantly, it is at the <em>family level</em> and has many differenced variables between twins (the descriptions follow from the file <code>PUBLIC.SAS</code>):</p>
+<p><span class="num"></span> Load the <a href="https://github.com/edrubin/EC607S26/blob/master/problem-sets/003/data/twins90.csv"><code>twins90.csv</code> dataset</a> into R. This dataset has several new variables. Importantly, it is at the <em>family level</em> and has many differenced variables between twins (the descriptions follow from the file <code>PUBLIC.SAS</code>):</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2470,7 +2470,7 @@ window.Quarto = {
 <p><span class="num"></span> Using this new dataset, reproduce column (vi) in Table 3. <em>In other words:</em> Use IV to estimate the effect of (differenced) schooling on (differenced) log wage, where your instrument is the (differenced) cross-reported education. Report your results.</p>
 <p><span class="num"></span> Does IV produce meaningfully different results from OLS?</p>
 <p><span class="num"></span> <em>How</em> does instrumenting the difference in <em>self-reported education</em> with the difference in <em>cross-reported education</em> address measurement error?</p>
-<p><span class="num"></span> Estimate the first-stage and reduced-form regression models. Report your results (including a significance test in the first stage) and discuss their implications.</p>
+<p><span class="num"></span> Estimate the first-stage and reduced-form regression models.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Report your results (including a significance test in the first stage) and discuss their implications.</p>
 <p><span class="num"></span> What is required for IV to be valid here? Do you think the instrument meets this requirement? Explain.</p>
 </section>
 <section id="section-3-reflections" class="level2">
@@ -2485,6 +2485,7 @@ window.Quarto = {
 
 <ol>
 <li id="fn1"><p>You can download the data file from <a href="https://dataspace.princeton.edu/handle/88435/dsp012801pg35n">Princeton’s repository</a>; it is also available in our course <a href="https://github.com/edrubin/EC607S26/problem-sets/003/data">repository</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>If you used <code>feols</code> to estimate the IV regression above, you can use <code>summary</code> to <a href="https://lrberge.github.io/fixest/reference/feols.html#instrumental-variables">get the first-stage</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->

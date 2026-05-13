@@ -51,7 +51,7 @@ After reading the paper, answer the following questions concisely.
 
 ## Section 2: Data time!
 
-[]{.num} Download and load the [data](https://github.com/edrubin/EC607S26/problem-sets/003/data/ashenfelter-krueger-1994.dta).
+[]{.num} Download and load the [data](https://github.com/edrubin/EC607S26/blob/master/problem-sets/003/data/ashenfelter-krueger-1994.dta).
 
 _Note:_ The `dta` file I am providing you is a cleaned version of the dataset from [Mateusz Filipski](https://www.mfilipski.com/pubgoods.html).^[You can download the data file from [Princeton's repository](https://dataspace.princeton.edu/handle/88435/dsp012801pg35n); it is also available in our course [repository](https://github.com/edrubin/EC607S26/problem-sets/003/data).]
 
@@ -99,7 +99,7 @@ _Note:_ Stick with the heteroskedasticity-robust standard-error estimator for al
 
 []{.num} _Why_ are Ashenfelter and Krueger concerned about measurement error?
 
-[]{.num} Load the `twins90.csv` dataset into R. This dataset has several new variables. Importantly, it is at the _family level_ and has many differenced variables between twins (the descriptions follow from the file `PUBLIC.SAS`):
+[]{.num} Load the [`twins90.csv` dataset](https://github.com/edrubin/EC607S26/blob/master/problem-sets/003/data/twins90.csv) into R. This dataset has several new variables. Importantly, it is at the _family level_ and has many differenced variables between twins (the descriptions follow from the file `PUBLIC.SAS`):
 
 | Variable | Description |
 |:--|:--|
@@ -126,7 +126,7 @@ _Note:_ Stick with the heteroskedasticity-robust standard-error estimator for al
 
 []{.num} _How_ does instrumenting the difference in _self-reported education_ with the difference in _cross-reported education_ address measurement error?
 
-[]{.num} Estimate the first-stage and reduced-form regression models. Report your results (including a significance test in the first stage) and discuss their implications.
+[]{.num} Estimate the first-stage and reduced-form regression models.^[If you used `feols` to estimate the IV regression above, you can use `summary` to [get the first-stage](https://lrberge.github.io/fixest/reference/feols.html#instrumental-variables).] Report your results (including a significance test in the first stage) and discuss their implications.
 
 []{.num} What is required for IV to be valid here? Do you think the instrument meets this requirement? Explain.
 
