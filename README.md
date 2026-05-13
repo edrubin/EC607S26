@@ -27,6 +27,10 @@ Problem sets combining econometric theory and R.
 <!--<br>
 ↳ *Solutions*-->
 
+[Problem set 003](https://raw.githack.com/edrubin/EC607S26/master/problem-sets/003/prompts.html) due Tuesday, 19 May 2026 by 11:59 PM.
+<!--<br>
+↳ *Solutions*-->
+
 
 ## Books
 

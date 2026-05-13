@@ -9,7 +9,7 @@ format:
     number-sections: false
     code-line-numbers: true
     embed-resources: true
-    self-contained: false
+    self-contained: true
     theme:
     - cosmo
     - ed.scss
