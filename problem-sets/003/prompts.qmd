@@ -1,0 +1,140 @@
+---
+title: "Problem set 3: IV and 2SLS"
+subtitle: "EC607"
+editor:
+  render-on-save: true
+format:
+  html:
+    toc: true
+    number-sections: false
+    code-line-numbers: true
+    embed-resources: true
+    self-contained: false
+    theme:
+    - cosmo
+    - ed.scss
+---
+
+Due Tuesday, 19 May (2026) by 11:59 PM.
+
+
+## Goal
+
+**README:** In this problem set, we will replicate some of the results from a classic 1994 paper from two giants in the field of causal inference and econometrics—Orley Ashenfelter and Alan Krueger. The paper is titled [_Estimates of the Economic Return to Schooling from a New Sample of Twins_](https://www.jstor.org/stable/2117766).
+
+The goals of this problem set are
+
+- continue building your causal inference and econometrics intuition and skills,
+- encounter a clever research paper,
+- see IV/2SLS applied in a real-world example that deviates from the "regular" IV/2SLS setup,
+- keep growing your R abilities.
+
+
+## Section 1: The big picture
+
+Rather than further describing the paper, I'm going to let you [read it yourself](https://raw.githack.com/edrubin/EC607S26/master/problem-sets/003/ashenfelter-krueger-1994.pdf).
+
+After reading the paper, answer the following questions concisely.
+
+[]{.num} What is the causal question at the heart of this paper?
+
+[]{.num} What would be the ideal experiment that would answer this question?
+
+[]{.num} How do the authors approach answering this question—_i.e._, what is their identification strategy? Be specific—_i.e._, explain how the authors avoid (a) selection bias and (b) bias from measurement error inherent to equation (1).
+
+[]{.num} Is the identification strategy plausible? What would threaten the validity of their results?
+
+[]{.num} Would you describe the approach here as _selection on observables_ or _selection on unobservables_? Explain.
+
+[]{.num} What are the main findings of the paper?
+
+
+## Section 2: Data time!
+
+[]{.num} Download and load the [data](https://github.com/edrubin/EC607S26/problem-sets/003/data/ashenfelter-krueger-1994.dta).
+
+_Note:_ The `dta` file I am providing you is a cleaned version of the dataset from [Mateusz Filipski](https://www.mfilipski.com/pubgoods.html).^[You can download the data file from [Princeton's repository](https://dataspace.princeton.edu/handle/88435/dsp012801pg35n); it is also available in our course [repository](https://github.com/edrubin/EC607S26/problem-sets/003/data).]
+
+_Hint:_ Use `read_dta` from `haven` to read the `.dta` file.
+
+_Another hint:_ Use `str` on the dataset you load to see the structure of the data, including the labels (descriptions) for each of the variables.
+
+[]{.num} Create a _new_ dataset where you have one observation per twin (rather than one observation per family). In the dataset that you loaded from `ashenfelter-krueger-1994.dta`, a row represents a family, so you need to transform the dataset from "wide" to "long".
+
+You have a lot of options here.
+
+You could use `select` to grab the columns you want and then `bind_rows`.
+
+You could also
+
+- `pivot` from `collapse`
+- `melt` from `data.table`
+- `pivot_longer` from `tidyr`,
+
+Make sure you keep the family ID (`famid`) and clean the names of the variables.
+
+[]{.num} Let's start with a simple (naive) OLS regression without any controls. _Using your twin-level dataset:_ Regress log wages on level of education. Report your results and interpret the estimated coefficient on education.
+
+[]{.num} Using the same dataset, add controls to match column (i) in Table 3. Report your results.
+
+[]{.num} Does the estimated coefficient on education change meaningfully when you add controls? Use the "omitted-variable formula" to think about what this result tells you.
+
+[]{.num} One more model with the individual-level dataset. Regress log wages on level of education _and_ a fixed effect for family ID (`famid`). Report your results.
+
+[]{.num} Now use the family-level dataset (the original dataset) to reproduce Figure 1 in the paper.
+
+[]{.num} Estimate equation (7) with OLS (without any controls). Use the "classical" (IID-assuming) standard-error estimator (`vcov = 'iid'` for `fixest` and `feols`).
+
+Report your results and interpret the estimated coefficient on $\Delta S'$.
+
+[]{.num} Give _at least_ two reasons why the IID-assuming standard-error estimator is inappropriate for these data.
+
+_Hint:_ The answer is _not_ correlation within families.
+
+[]{.num} Update the most recent results to use the heteroskedasticity-robust standard-error estimator (`vcov = 'het'` for `fixest` and `feols`). Did anything change meaningfully?
+
+_Note:_ Stick with the heteroskedasticity-robust standard-error estimator for all subsequent analyses.
+
+[]{.num} Ashenfelter and Krueger explicitly mention concerns about selection bias from family-level variation ($\mu_i$ in their model). Why don't we need a family fixed effect if Ashenfelter and Krueger are trying to estimate _within-family_ effects (_i.e._, trying to hold family constant)?
+
+[]{.num} _Why_ are Ashenfelter and Krueger concerned about measurement error?
+
+[]{.num} Load the `twins90.csv` dataset into R. This dataset has several new variables. Importantly, it is at the _family level_ and has many differenced variables between twins (the descriptions follow from the file `PUBLIC.SAS`):
+
+| Variable | Description |
+|:--|:--|
+| `dlhrwage` | $\Delta$ log wage |
+| `deduc1` | $\Delta$ self-reported education |
+| `deduc2` | $\Delta$ cross-reported education |
+| `dten` | $\Delta$ tenure |
+| `dmarried` | $\Delta$ marital status |
+| `duncov` | $\Delta$ union coverage |
+| `age` | Age in years |
+| `agesq` | Age-squared |
+| `lhrwageh` | Log wage, twin 2 |
+| `whiteh` | 1 if white, twin 2 |
+| `maleh` | 1 if male, twin 2 |
+| `educh` | Self-reported education, twin 2 |
+| `lhrwagel` | Log wage, twin 1 |
+| `whitel` | 1 if white, twin 1 |
+| `malel` | 1 if male, twin 1 |
+| `educl` | Self-reported education, twin 1 |
+
+[]{.num} Using this new dataset, reproduce column (vi) in Table 3. _In other words:_ Use IV to estimate the effect of (differenced) schooling on (differenced) log wage, where your instrument is the (differenced) cross-reported education. Report your results.
+
+[]{.num} Does IV produce meaningfully different results from OLS?
+
+[]{.num} _How_ does instrumenting the difference in _self-reported education_ with the difference in _cross-reported education_ address measurement error?
+
+[]{.num} Estimate the first-stage and reduced-form regression models. Report your results (including a significance test in the first stage) and discuss their implications.
+
+[]{.num} What is required for IV to be valid here? Do you think the instrument meets this requirement? Explain.
+
+
+## Section 3: Reflections
+
+[]{.num} What does Table 1 (in the paper) tell us about the population of interviewed individuals relative to the US population? _In other words:_ How generalizable are the results to the US population? Explain.
+
+[]{.num} What do Ashenfelter and Krueger assume about the measurement error? Is this assumption reasonable in their context?
+
+[]{.num} What are your takeaways from this paper regarding measurement error? Is it a "first-order problem"?
