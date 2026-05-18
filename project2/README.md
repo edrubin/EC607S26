@@ -50,5 +50,8 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
 
 | Topic | Person |
 |-------|--------|
+| Decompositions (Kitagawa-Oaxaca-Blinder) | Baboucarr Dibba |
+| Event studies | Wil Hillmer |
+| Dynamics and spillovers | Rhoan McMaster |
 | Measurement error | Scheryll Ouma |
 | Synthetic difference-in-differences | Trey Slaten |
