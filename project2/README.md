@@ -50,10 +50,12 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
 
 | Topic | Person |
 |-------|--------|
+| Interrupted time-series | Songling Chen |
 | Decompositions (Kitagawa-Oaxaca-Blinder) | Baboucarr Dibba |
 | Event studies | Wil Hillmer |
+| Bayesian Additive Regression Trees in causal inference | Sebastian Jaramillo Diaz |
+| Synthetic control methods | Nouman Iqbal |
 | Dynamics and spillovers | Rhoan McMaster |
 | Measurement error | Scheryll Ouma |
 | Synthetic difference-in-differences | Trey Slaten |
-| Interrupted time-series | Songling Chen |
 | Quantile regression | Yinuo Zang |
