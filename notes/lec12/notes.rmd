@@ -56,18 +56,18 @@ options(crayon.enabled = F)
 options(knitr.table.format = "html")
 theme_set(theme_gray(base_size = 20))
 # Column names for regression results
-reg_columns <- c("Term", "Est.", "S.E.", "t stat.", "p-Value")
+reg_columns = c("Term", "Est.", "S.E.", "t stat.", "p-Value")
 # Function for formatting p values
-format_pvi <- function(pv) {
+format_pvi = function(pv) {
   return(ifelse(
     pv < 0.0001,
     "<0.0001",
     round(pv, 4) %>% format(scientific = F)
   ))
 }
-format_pv <- function(pvs) lapply(X = pvs, FUN = format_pvi) %>% unlist()
+format_pv = function(pvs) lapply(X = pvs, FUN = format_pvi) %>% unlist()
 # Tidy regression results table
-tidy_table <- function(x, terms, highlight_row = 1, highlight_color = "black", highlight_bold = T, digits = c(NA, 3, 3, 2, 5), title = NULL) {
+tidy_table = function(x, terms, highlight_row = 1, highlight_color = "black", highlight_bold = T, digits = c(NA, 3, 3, 2, 5), title = NULL) {
   x %>%
     tidy() %>%
     select(1:5) %>%
@@ -214,25 +214,25 @@ set.seed(123)
 n = 9
 z = tibble(x = 1:n, y = 1 + x + rnorm(n, sd = 5))
 b = lm(y ~ x, data = z)$coefficient[2]
-boot_colors <- magma(n, begin = 0.1, end = 0.93)
+boot_colors = magma(n, begin = 0.1, end = 0.93)
 s = 1:n
-base_df <- expand.grid(x = 1:sqrt(n), y = 1:sqrt(n)) %>% as_tibble()
+base_df = expand.grid(x = 1:sqrt(n), y = 1:sqrt(n)) %>% as_tibble()
 # Bootstrap 1
-s1 <- sample(1:n, n, replace = T)
-z1 <- z[s1,]
-b1 <- lm(y ~ x, data = z1)$coefficient[2]
+s1 = sample(1:n, n, replace = T)
+z1 = z[s1,]
+b1 = lm(y ~ x, data = z1)$coefficient[2]
 # Bootstrap 2
-s2 <- sample(1:n, n, replace = T)
-z2 <- z[s2,]
-b2 <- lm(y ~ x, data = z2)$coefficient[2]
+s2 = sample(1:n, n, replace = T)
+z2 = z[s2,]
+b2 = lm(y ~ x, data = z2)$coefficient[2]
 # Bootstrap 3
-s3 <- sample(1:n, n, replace = T)
-z3 <- z[s3,]
-b3 <- lm(y ~ x, data = z3)$coefficient[2]
+s3 = sample(1:n, n, replace = T)
+z3 = z[s3,]
+b3 = lm(y ~ x, data = z3)$coefficient[2]
 # Bootstrap 4
-s4 <- sample(1:n, n, replace = T)
-z4 <- z[s4,]
-b4 <- lm(y ~ x, data = z4)$coefficient[2]
+s4 = sample(1:n, n, replace = T)
+z4 = z[s4,]
+b4 = lm(y ~ x, data = z4)$coefficient[2]
 ```
 
 ---
@@ -394,23 +394,23 @@ theme(legend.position = "none")
 Running this bootstrap 10,000 times
 
 ```{r, boot-full, cache = T, eval = T}
-plan(multiprocess, workers = 10)
+plan(multisession, workers = 10)
 # Set a seed
 set.seed(123)
 # Run the simulation 1e4 times
-boot_df <- future_map_dfr(
+boot_df = future_map(
   # Repeat sample size 100 for 1e4 times
   rep(n, 1e4),
   # Our function
   function(n) {
     # Estimates via bootstrap
-    est <- lm(y ~ x, data = z[sample(1:n, n, replace = T), ])
+    est = lm(y ~ x, data = z[sample(1:n, n, replace = T), ])
     # Return a tibble
     data.frame(int = est$coefficients[1], coef = est$coefficients[2])
   },
   # Let furrr know we want to set a seed
-  .options = future_options(seed = T)
-)
+  .options = furrr_options(seed = T)
+) |> list_rbind()
 ```
 ---
 layout: false
@@ -853,9 +853,9 @@ Back to the LaLonde NSW dataset. We previously estimated
 
 ```{r, read-nsw, echo = F}
 # Read NSW data
-nsw_df <- haven::read_dta("nsw.dta")
+nsw_df = haven::read_dta("nsw.dta")
 # Estimate
-est_ols <- lm_robust(re78 ~ treat, data = nsw_df) %>% tidy()
+est_ols = lm_robust(re78 ~ treat, data = nsw_df) %>% tidy()
 ```
 
 - the NSW increased real earnings by $\color{#e64173}{\hat{\beta}_1}\approx$ .pink[`r est_ols[2,"estimate"] %>% scales::dollar()`]
@@ -906,11 +906,11 @@ class: clear
 First, we'll write a function that performs one iteration.
 ```{r, random-fun1, eval = T}
 # Arguments: 'i' (iteration), 'n_t' (# of trt)
-fun_randomization <- function(i) {
+fun_randomization = function(i) {
   # Sample the treatment vector. NOTE: Sampling WITHOUT replacement
-  t_i <- sample(nsw_df$treat, size = nrow(nsw_df), replace = F)
+  t_i = sample(nsw_df$treat, size = nrow(nsw_df), replace = F)
   # Regression using our re-randomized treatment
-  est_i <- lm_robust(re78 ~ t_i, data = nsw_df) %>% tidy()
+  est_i = lm_robust(re78 ~ t_i, data = nsw_df) %>% tidy()
   # Return tibble with iteration, point estimate, and test statistic
   tibble(i, est = est_i[2,"estimate"], t_stat = est_i[2,"statistic"])
 }
@@ -921,13 +921,13 @@ fun_randomization <- function(i) {
 And now run the re-randomization function 10,000 times.
 ```{r, random-fun2, cache = T, eval = T}
 # Set up parallelization and seed
-plan(multiprocess, workers = 4); set.seed(1234)
+plan(multisession, workers = 4); set.seed(1234)
 # Run the simulation 1e4 times
-random_df <- future_map_dfr(
+random_df = future_map(
   1:1e4,
   fun_randomization,
-  .options = future_options(seed = T)
-)
+  .options = furrr_options(seed = T)
+) |> list_rbind()
 ```
 ---
 
@@ -935,7 +935,7 @@ random_df <- future_map_dfr(
 
 ```{r, random-dist1, echo = F, fig.height = 6.75}
 # Calculate density
-gg_df <- density(random_df$est, n = 1e3, kernel = "epanechnikov") %$% tibble(
+gg_df = density(random_df$est, n = 1e3, kernel = "epanechnikov") %$% tibble(
   est = x,
   density = y,
   reject = abs(est) > est_ols[2,"estimate"]
@@ -974,7 +974,7 @@ theme(
 
 ```{r, random-dist2, echo = F, fig.height = 6.75}
 # Calculate density
-gg_df <- density(random_df$t_stat, n = 1e3, kernel = "epanechnikov") %$% tibble(
+gg_df = density(random_df$t_stat, n = 1e3, kernel = "epanechnikov") %$% tibble(
   stat = x,
   density = y,
   reject = abs(stat) > est_ols[2,"statistic"]
@@ -1038,16 +1038,16 @@ exclude: true
 
 ```{r, fun-invert-ci, echo = F}
 # Arguments: 'null', the null values
-fun_invert_i <- function(null) {
+fun_invert_i = function(null) {
   # Sample the treatment vector. NOTE: Sampling WITHOUT replacement
-  t_i <- sample(nsw_df$treat, size = nrow(nsw_df), replace = F)
-  map_dfr(
+  t_i = sample(nsw_df$treat, size = nrow(nsw_df), replace = F)
+  future_map(
     null,
     function(null_j) {
       # Impose the null (generate outcomes)
-      y_ij <- nsw_df$re78 + t_i * null_j
+      y_ij = nsw_df$re78 + t_i * null_j
       # Regression using our re-randomized treatment
-      est_ij <- lm_robust(y_ij ~ t_i) %>% tidy()
+      est_ij = lm_robust(y_ij ~ t_i) %>% tidy()
       # Return tibble with point estimate, se, test statistic, and null
       tibble(
         est = est_ij[2,"estimate"],
@@ -1056,21 +1056,23 @@ fun_invert_i <- function(null) {
         null = null_j
       )
     }
-  ) %>% mutate(null_group = unlist(null) %>% seq_along())
+  ) %>%
+  list_rbind() %>%
+  mutate(null_group = unlist(null) %>% seq_along())
 }
 # Function to run the function a bunch of times
-fun_invert <- function(null, times = 1e3) {
-  plan(multiprocess, workers = 4)
-  future_map_dfr(
+fun_invert = function(null, times = 1e3) {
+  plan(multisession, workers = 4)
+  future_map(
     rep(null, times),
     fun_invert_i,
-    .options = future_options(seed = T)
-  )
+    .options = furrr_options(seed = T)
+  ) |> list_rbind()
 }
 ```
 
 ```{r, run-invert-ci, echo = F, cache = T, eval = T}
-ci_df <- fun_invert(
+ci_df = fun_invert(
   # null = list(quantile(random_df$est, seq(0, 1, 0.01))),
   null = list(seq(
     from = est_ols[2,"estimate"] - 10 * est_ols[2,"std.error"],
@@ -1083,7 +1085,7 @@ ci_df <- fun_invert(
 
 ```{r, summarize-ci, eval = T}
 # Add groups and test
-ci_sum <- ci_df %>% mutate(
+ci_sum = ci_df %>% mutate(
   reject = abs((est - est_ols[2,"estimate"])/se) > qt(0.975, df = 720)
 )
 # Summarize

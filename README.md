@@ -310,10 +310,7 @@ More information [here](project1/step2.md).
 
 ## Exams
 
-The final exam has two parts:
-
-- In class: 8:00a–10:00a on Thursday, June 11th (2026).
-- Take-home exam: Responses due by 11:59p Pacific on Friday, June 12th, 2026.
+The final exam will be a take-home exam; responses will due by 11:59p Pacific on Thursday, June 11th, 2026.
 
 We do not have a midterm exam.
 

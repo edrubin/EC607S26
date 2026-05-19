@@ -4,21 +4,28 @@
     <title>Inference and Randomization</title>
     <meta charset="utf-8" />
     <meta name="author" content="Edward Rubin" />
-    <link href="12-randomization_files/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="12-randomization_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
-    <link href="12-randomization_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
-    <link href="12-randomization_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
-    <script src="12-randomization_files/tile-view-0.2.6/tile-view.js"></script>
-    <script src="12-randomization_files/xaringanExtra_fit-screen-0.2.6/fit-screen.js"></script>
+    <script src="notes_files/header-attrs-2.29/header-attrs.js"></script>
+    <link href="notes_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="notes_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="notes_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link href="notes_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="notes_files/tile-view-0.2.6/tile-view.js"></script>
+    <script src="notes_files/xaringanExtra_fit-screen-0.2.6/fit-screen.js"></script>
     <link rel="stylesheet" href="my-css.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Inference and Randomization
+]
+.subtitle[
 ## EC 607, Set 12
+]
+.author[
 ### Edward Rubin
+]
 
 ---
 
@@ -56,8 +63,6 @@ Inference using (re)randomization .super[.pink[†]]
 ## Upcoming
 
 The end is near. As is the final.
-
-Also: The last problem set!
 
 ---
 layout: true
@@ -155,33 +160,33 @@ name: boot-graph
 
 .thin-left[
 `$$Z$$`
-&lt;img src="12-randomization_files/figure-html/g1-boot0-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/g1-boot0-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 `$$\hat\beta = 0.653$$`
 
-&lt;img src="12-randomization_files/figure-html/g2-boot0-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/g2-boot0-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 --
 
 .thin-left[
 `$$Z^{\star 1}$$`
-&lt;img src="12-randomization_files/figure-html/g1-boot1-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/g1-boot1-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 `$$\hat\beta = -0.96$$`
 
-&lt;img src="12-randomization_files/figure-html/g2-boot1-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/g2-boot1-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 --
 
 .thin-left[
 `$$Z^{\star 2}$$`
-&lt;img src="12-randomization_files/figure-html/g1-boot2-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/g1-boot2-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 `$$\hat\beta = 0.968$$`
 
-&lt;img src="12-randomization_files/figure-html/g2-boot2-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/g2-boot2-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 --
@@ -192,11 +197,11 @@ name: boot-graph
 
 .thin-left[
 `$$Z^{\star B}$$`
-&lt;img src="12-randomization_files/figure-html/g1-boot3-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/g1-boot3-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 `$$\hat\beta = 0.978$$`
 
-&lt;img src="12-randomization_files/figure-html/g2-boot3-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/g2-boot3-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -204,30 +209,30 @@ name: boot-graph
 Running this bootstrap 10,000 times
 
 
-```r
-plan(multiprocess, workers = 10)
+``` r
+plan(multisession, workers = 10)
 # Set a seed
 set.seed(123)
 # Run the simulation 1e4 times
-boot_df &lt;- future_map_dfr(
+boot_df = future_map(
   # Repeat sample size 100 for 1e4 times
   rep(n, 1e4),
   # Our function
   function(n) {
     # Estimates via bootstrap
-    est &lt;- lm(y ~ x, data = z[sample(1:n, n, replace = T), ])
+    est = lm(y ~ x, data = z[sample(1:n, n, replace = T), ])
     # Return a tibble
     data.frame(int = est$coefficients[1], coef = est$coefficients[2])
   },
   # Let furrr know we want to set a seed
-  .options = future_options(seed = T)
-)
+  .options = furrr_options(seed = T)
+) |&gt; list_rbind()
 ```
 ---
 layout: false
 class: clear, middle
 
-&lt;img src="12-randomization_files/figure-html/boot-full-graph-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/boot-full-graph-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 layout: true
@@ -419,7 +424,7 @@ This is the idea behind .attn[permutation testing] and .attn[randomization infer
 --
 .left30.pad-left[
 &lt;br&gt;
-&lt;img src="12-randomization_files/figure-html/graph-tea-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/graph-tea-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 --
@@ -666,13 +671,13 @@ class: clear
 
 First, we'll write a function that performs one iteration.
 
-```r
+``` r
 # Arguments: 'i' (iteration), 'n_t' (# of trt)
-fun_randomization &lt;- function(i) {
+fun_randomization = function(i) {
   # Sample the treatment vector. NOTE: Sampling WITHOUT replacement
-  t_i &lt;- sample(nsw_df$treat, size = nrow(nsw_df), replace = F)
+  t_i = sample(nsw_df$treat, size = nrow(nsw_df), replace = F)
   # Regression using our re-randomized treatment
-  est_i &lt;- lm_robust(re78 ~ t_i, data = nsw_df) %&gt;% tidy()
+  est_i = lm_robust(re78 ~ t_i, data = nsw_df) %&gt;% tidy()
   # Return tibble with iteration, point estimate, and test statistic
   tibble(i, est = est_i[2,"estimate"], t_stat = est_i[2,"statistic"])
 }
@@ -682,26 +687,26 @@ fun_randomization &lt;- function(i) {
 
 And now run the re-randomization function 10,000 times.
 
-```r
+``` r
 # Set up parallelization and seed
-plan(multiprocess, workers = 4); set.seed(1234)
+plan(multisession, workers = 4); set.seed(1234)
 # Run the simulation 1e4 times
-random_df &lt;- future_map_dfr(
+random_df = future_map(
   1:1e4,
   fun_randomization,
-  .options = future_options(seed = T)
-)
+  .options = furrr_options(seed = T)
+) |&gt; list_rbind()
 ```
 ---
 
 .note[Result 1] Share `\(\color{#6A5ACD}{\big|\hat{\beta}_1^r\big|} &gt; \color{#e64173}{\hat{\beta}_1} =\)` 0.0618. (Original *p*-value `\(=\)` .pink[0.0699])
 
-&lt;img src="12-randomization_files/figure-html/random-dist1-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/random-dist1-1.svg" style="display: block; margin: auto;" /&gt;
 ---
 
 .note[Result 2] Share `\(\color{#6A5ACD}{\big| t_\text{stat}^r\big|} &gt; \color{#e64173}{t_\text{stat}} =\)` 0.0715. (Original *p*-value `\(=\)` .pink[0.0699])
 
-&lt;img src="12-randomization_files/figure-html/random-dist2-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/random-dist2-1.svg" style="display: block; margin: auto;" /&gt;
 
 ---
 layout: true
@@ -736,9 +741,9 @@ exclude: true
 
 
 
-```r
+``` r
 # Add groups and test
-ci_sum &lt;- ci_df %&gt;% mutate(
+ci_sum = ci_df %&gt;% mutate(
   reject = abs((est - est_ols[2,"estimate"])/se) &gt; qt(0.975, df = 720)
 )
 # Summarize
@@ -753,7 +758,7 @@ ci_sum %&lt;&gt;% group_by(null_group) %&gt;%
 exclude: false
 
 .note[Constructing a 95% confidence interval]
-&lt;img src="12-randomization_files/figure-html/random-ci1-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="notes_files/figure-html/random-ci1-1.svg" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -877,13 +882,15 @@ layout: false
 
 ---
 exclude: true
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -924,6 +931,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
