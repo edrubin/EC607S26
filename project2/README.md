@@ -55,3 +55,5 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
 | Dynamics and spillovers | Rhoan McMaster |
 | Measurement error | Scheryll Ouma |
 | Synthetic difference-in-differences | Trey Slaten |
+| Interrupted time-series | Songling Chen |
+| Quantile regression | Yinuo Zang |

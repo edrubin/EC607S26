@@ -15,6 +15,7 @@ lec07 : $(dir-lec)lec07/notes.html $(dir-lec)lec07/notes.pdf
 lec08 : $(dir-lec)lec08/notes.html $(dir-lec)lec08/notes.pdf
 lec09 : $(dir-lec)lec09/notes.html $(dir-lec)lec09/notes.pdf
 lec10 : $(dir-lec)lec10/notes.html $(dir-lec)lec10/notes.pdf
+lec11 : $(dir-lec)lec11/notes.html $(dir-lec)lec11/notes.pdf
 
 # Define individual links ------------------------------------------------------
 # Lecture 01
@@ -67,9 +68,14 @@ $(dir-lec)lec10/notes.html : $(dir-lec)lec10/notes.rmd $(dir-lec)lec10/my-css.cs
 	Rscript -e "rmarkdown::render('$<')"
 $(dir-lec)lec10/notes.pdf : $(dir-lec)lec10/notes.html
 	Rscript -e "pagedown::chrome_print('$<')"
+# Lecture 11
+$(dir-lec)lec11/notes.html : $(dir-lec)lec11/notes.rmd $(dir-lec)lec11/my-css.css
+	Rscript -e "rmarkdown::render('$<')"
+$(dir-lec)lec11/notes.pdf : $(dir-lec)lec11/notes.html
+	Rscript -e "pagedown::chrome_print('$<')"
 
 # Global targets ---------------------------------------------------------------
-lec-all: lec01 lec02 lec03 lec04 lec05 lec06 lec07 lec08 lec09
+lec-all: lec01 lec02 lec03 lec04 lec05 lec06 lec07 lec08 lec09 lec10 lec11
 # Define clean
 clean:
 	rm -f lec-all

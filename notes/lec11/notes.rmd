@@ -77,6 +77,7 @@ Inference and clustering
 
 - Problem set #3
 - Projects!
+- Final exam
 
 ---
 layout: true
@@ -623,7 +624,7 @@ So now you know what `feols()`, `lm_robust()`, *etc.* are doing when you specify
 `lm_robust()` .hi-slate[without clustering]
 ```{r, ex-cluster-1}
 # Estimate without clusters
-vote_no <- lm_robust(
+vote_no = lm_robust(
   voteA ~ expendA + expendB,
   fixed_effects = state,
   data = wooldridge::vote1
@@ -634,7 +635,7 @@ vote_no <- lm_robust(
 `lm_robust()` .hi-slate[with clustering]
 ```{r, ex-cluster-2}
 # Estimate with clusters
-vote_cl <- lm_robust(
+vote_cl = lm_robust(
   voteA ~ expendA + expendB,
   fixed_effects = state,
   clusters = state,
@@ -739,9 +740,9 @@ First we need to write the .hi-slate[data generating process for one iteration].
 
 ```{r, dgp-code, eval = T}
 # The DGP
-sim_dgp <- function(n = 100, n_grps = 10, σν = 1, ση = 1) {
+sim_dgp = function(n = 100, n_grps = 10, σν = 1, ση = 1) {
   # Create the right number of observations
-  sample_df <- expand.grid(i = 1:n, g = 1:n_grps) %>% as_tibble()
+  sample_df = expand.grid(i = 1:n, g = 1:n_grps) %>% as_tibble()
   # Create a unique ID (from 1 to number of observations)
   sample_df %<>% mutate(id = 1:(n * n_grps))
   # Sample ν at the group level (NOTE: DON'T FORGET TO UNGROUP)
@@ -763,19 +764,19 @@ sim_dgp <- function(n = 100, n_grps = 10, σν = 1, ση = 1) {
 Now we .hi-slate[analyze] the data within one iteration.
 ```{r, reg-code, eval = T}
 # Analyze 'data'
-sim_analyze <- function(data) {
+sim_analyze = function(data) {
   # Conventional SEs
-  result_ols <- lm_robust(
+  result_ols = lm_robust(
     y ~ x1 + x2, data = data, se_type = "classical"
   ) %>% tidy() %>% filter(term %in% c("x1", "x2")) %>% select(1:5) %>%
   mutate(type = "conventional")
   # Cluster-robust SEs
-  result_cl <- lm_robust(
+  result_cl = lm_robust(
     y ~ x1 + x2, data = data, clusters = g
   ) %>% tidy() %>% filter(term %in% c("x1", "x2")) %>% select(1:5) %>%
   mutate(type = "clustered")
   # Bind results together and add column for standard errors
-  results_df <- bind_rows(result_ols, result_cl)
+  results_df = bind_rows(result_ols, result_cl)
   # Return results
   return(results_df)
 }
@@ -785,7 +786,7 @@ sim_analyze <- function(data) {
 Now put the pieces together.
 ```{r, sim-code, eval = T}
 # Join sim_dgp and sim_analyze
-sim_iter <- function(n = 100, n_grps = 10, σν = 1, ση = 1) {
+sim_iter = function(n = 100, n_grps = 10, σν = 1, ση = 1) {
   # Run the analysis in sim_analyze on the output of sim_dgp
   sim_dgp(n = 100, n_grps = 10, σν = 1, ση = 1) %>% sim_analyze()
 }
@@ -797,17 +798,17 @@ And we .hi-slate[run the simulation] (10,000 times).
 ```{r, sim-run, eval = T, cache = T}
 # Load and set up furrr
 p_load(furrr)
-plan(multiprocess, workers = 10)
+plan(multisession, workers = 10)
 # Set a seed
 set.seed(1234)
 # Run the simulation 1e4 times
-sim_df <- future_map_dfr(
+sim_df = future_map_dfr(
   # Repeat sample size 100 for 1e4 times
   rep(100, 1e4),
   # Our function
   sim_iter,
   # Let furrr know we want to set a seed
-  .options = future_options(seed = T)
+  .options = furrr_options(seed = T)
 )
 ```
 
