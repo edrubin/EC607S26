@@ -75,8 +75,8 @@ Inference and clustering
 
 ## Upcoming
 
-- Problem set #3 due Sunday?
-- Project step 2 coming this week too (with feedback from step 1).
+- Problem set #3
+- Projects!
 
 ---
 layout: true
@@ -907,4 +907,3 @@ layout: false
 1. [Simulation](#simulation)
 1. [Resources](#resources)
 ]]
-

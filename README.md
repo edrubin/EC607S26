@@ -196,7 +196,7 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
  [.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec10/notes.rmd)
 <br>**Readings:** MHE chapter 6 + C&T sections 25.6
 
-**[Lecture 11: Inference: Clustering](https://raw.githack.com/edrubin/EC607S23/master/notes/11-clustering/11-clustering.html)**
+**[Lecture 11: Inference: Clustering](https://raw.githack.com/edrubin/EC607S26/master/notes/lec11/notes.html)**
 
 1. General inference
 1. Moulton
