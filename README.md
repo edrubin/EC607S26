@@ -193,7 +193,7 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
 
  **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec10/notes.html) |
 [.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec10/notes.pdf) |
- [.Rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec10/notes.Rmd)
+ [.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec10/notes.rmd)
 <br>**Readings:** MHE chapter 6 + C&T sections 25.6
 
 **[Lecture 11: Inference: Clustering](https://raw.githack.com/edrubin/EC607S23/master/notes/11-clustering/11-clustering.html)**
@@ -202,9 +202,9 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
 1. Moulton
 1. Cluster-robust standard errors
 
- **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S23/master/notes/11-clustering/11-clustering.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S23/master/notes/11-clustering/11-clustering.pdf) |
-[.Rmd](https://raw.githack.com/edrubin/EC607S23/master/notes/11-clustering/11-clustering.Rmd)
+ **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec11/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S23/master/notes/lec11/notes.pdf) |
+[.rmd](https://raw.githack.com/edrubin/EC607S23/master/notes/lec11/notes.rmd)
 
 **Readings:** MHE chapter 8
 
