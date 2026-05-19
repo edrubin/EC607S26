@@ -208,16 +208,16 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
 
 **Readings:** MHE chapter 8
 
-**[Lecture 12: Inference: Resampling and Randomization](https://raw.githack.com/edrubin/EC607S22/master/notes/12-randomization/12-randomization.html)**
+**[Lecture 12: Inference: Resampling and Randomization](https://raw.githack.com/edrubin/EC607S26/master/notes/lec12/notes.html)**
 
 1. Resampling
 1. The bootstrap
 1. Permutation tests (Fisher)
 1. Randomization inference (Neyman-Pearson)
 
- **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S22/master/notes/12-randomization/12-randomization.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S22/master/notes/12-randomization/12-randomization.pdf) |
-[.Rmd](https://raw.githack.com/edrubin/EC607S22/master/notes/12-randomization/12-randomization.Rmd)
+ **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S26/master/notes/lec12/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S26/master/notes/lec12/notes.pdf) |
+[.rmd](https://raw.githack.com/edrubin/EC607S26/master/notes/lec12/notes.rmd)
 
 **Readings:** MHE chapter 6 + C&T sections 25.6
 
