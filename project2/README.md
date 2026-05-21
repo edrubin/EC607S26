@@ -54,8 +54,11 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
 | Decompositions (Kitagawa-Oaxaca-Blinder) | Baboucarr Dibba |
 | Event studies | Wil Hillmer |
 | Bayesian Additive Regression Trees in causal inference | Sebastian Jaramillo Diaz |
+| Non-parametric regression | Jack Harper |
 | Synthetic control methods | Nouman Iqbal |
+| Double-difference estimators | Rui Liu |
 | Dynamics and spillovers | Rhoan McMaster |
 | Measurement error | Scheryll Ouma |
+| Causal forests | Samin Rajabi |
 | Synthetic difference-in-differences | Trey Slaten |
 | Quantile regression | Yinuo Zang |
