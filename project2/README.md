@@ -48,17 +48,25 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
 
 ## Claimed topics
 
+Friday, 29 May 2026
+
 | Topic | Person |
-|-------|--------|
+|:------|:-------|
 | Interrupted time-series | Songling Chen |
-| Decompositions (Kitagawa-Oaxaca-Blinder) | Baboucarr Dibba |
-| Event studies | Wil Hillmer |
-| Bayesian Additive Regression Trees in causal inference | Sebastian Jaramillo Diaz |
-| Non-parametric regression | Jack Harper |
-| Synthetic control methods | Nouman Iqbal |
 | Double-difference estimators | Rui Liu |
-| Dynamics and spillovers | Rhoan McMaster |
-| Measurement error | Scheryll Ouma |
-| Causal forests | Samin Rajabi |
+| Event studies | Wil Hillmer |
+| Synthetic control methods | Nouman Iqbal |
 | Synthetic difference-in-differences | Trey Slaten |
+| Decompositions (Kitagawa-Oaxaca-Blinder) | Baboucarr Dibba |
+
+Tuesday, 02 June 2026
+
+| Topic | Person |
+|:------|:-------|
+| Maximum likelihood estimation and Bayesian inference | Christian Pryfogle |
 | Quantile regression | Yinuo Zang |
+| Non-parametric regression | Jack Harper |
+| Measurement error | Scheryll Ouma |
+| Dynamics and spillovers | Rhoan McMaster |
+| Causal forests | Samin Rajabi |
+| Bayesian Additive Regression Trees in causal inference | Sebastian Jaramillo Diaz |
