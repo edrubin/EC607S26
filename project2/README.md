@@ -67,6 +67,7 @@ Tuesday, 02 June 2026
 | Quantile regression | Yinuo Zang |
 | Non-parametric regression | Jack Harper |
 | Measurement error | Scheryll Ouma |
+| Differential attrition and Lee bounds | Jadon Schmitt |
 | Dynamics and spillovers | Rhoan McMaster |
 | Causal forests | Samin Rajabi |
 | Bayesian Additive Regression Trees in causal inference | Sebastian Jaramillo Diaz |
