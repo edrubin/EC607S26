@@ -57,7 +57,11 @@ Friday, 29 May 2026
 | Event studies | Wil Hillmer |
 | Synthetic control methods | Nouman Iqbal |
 | Synthetic difference-in-differences | Trey Slaten |
+| Random-effects models | Arvin Bahreini |
+| Measurement error | Scheryll Ouma |
 | Decompositions (Kitagawa-Oaxaca-Blinder) | Baboucarr Dibba |
+| Differential attrition and Lee bounds | Jadon Schmitt |
+| Dynamics and spillovers | Rhoan McMaster |
 
 Tuesday, 02 June 2026
 
@@ -66,8 +70,6 @@ Tuesday, 02 June 2026
 | Maximum likelihood estimation and Bayesian inference | Christian Pryfogle |
 | Quantile regression | Yinuo Zang |
 | Non-parametric regression | Jack Harper |
-| Measurement error | Scheryll Ouma |
-| Differential attrition and Lee bounds | Jadon Schmitt |
-| Dynamics and spillovers | Rhoan McMaster |
 | Causal forests | Samin Rajabi |
 | Bayesian Additive Regression Trees in causal inference | Sebastian Jaramillo Diaz |
+| Double machine learning | Yize Wu |
