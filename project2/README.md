@@ -48,7 +48,7 @@ Here are a few ideas for topics to get you started. You can certainly go beyond 
 
 ## Claimed topics
 
-Friday, 29 May 2026
+Tuesday, 02 June 2026
 
 | Topic | Person |
 |:------|:-------|
@@ -63,7 +63,7 @@ Friday, 29 May 2026
 | Differential attrition and Lee bounds | Jadon Schmitt |
 | Dynamics and spillovers | Rhoan McMaster |
 
-Tuesday, 02 June 2026
+Thursday, 04 June 2026
 
 | Topic | Person |
 |:------|:-------|
