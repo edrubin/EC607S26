@@ -221,7 +221,7 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
 
 **Readings:** MHE chapter 6 + C&T sections 25.6
 
-[**Lecture 13: Machine learning (in one lecture)**](https://raw.githack.com/edrubin/EC607S22/master/notes/13-ml/13-ml.html)
+[**Lecture 13: Machine learning (in one lecture)**](https://raw.githack.com/edrubin/EC607S26/master/notes/lec13/notes.html)
 
 1. Prediction basics
 1. The bias-variance tradeoff
@@ -231,9 +231,9 @@ That said, if you're starting out now, I'd go with [Quarto](https://quarto.org).
 1. Decision trees
 1. Ensembles (of trees)
 
- **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S22/master/notes/13-ml/13-ml.html) |
-[.pdf](https://raw.githack.com/edrubin/EC607S22/master/notes/13-ml/13-ml.pdf) | 
-[.Rmd](https://raw.githack.com/edrubin/EC607S22/master/notes/13-ml/13-ml.Rmd)
+ **Note formats:** [.html](https://raw.githack.com/edrubin/EC607S22/master/notes/lec13/notes.html) |
+[.pdf](https://raw.githack.com/edrubin/EC607S22/master/notes/lec13/notes.pdf) | 
+[.Rmd](https://raw.githack.com/edrubin/EC607S22/master/notes/lec13/notes.Rmd)
 
 **Readings:** [Introduction to statistical learning](http://faculty.marshall.usc.edu/gareth-james/ISL/)
 
