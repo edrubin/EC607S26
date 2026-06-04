@@ -11,8 +11,8 @@ format:
     embed-resources: true
     self-contained: true
     theme:
-      dark: [superhero, ed.scss]
       light: [cosmo, ed.scss]
+      dark: [superhero, ed.scss]
 
 ---
 
