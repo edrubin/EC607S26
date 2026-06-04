@@ -15,6 +15,11 @@ Welcome to **Economics 607: Econometrics III** (Spring 2026) at the University o
 - **[Shaoda Wang](https://cas.uoregon.edu/directory/economics/all/shaoda)**: TBD, [PLC 522](https://map.uoregon.edu/0fb6cfeeb) ([shaoda@uoregon.edu](mailto:shaoda@uoregon.edu))
 
 
+## Final exam
+
+The (take-home) [final exam](https://raw.githack.com/edrubin/EC607S26/master/final/take-home/prompts.html) is due by 11:59 PM on Thursday, 11 June 2026.
+
+
 ## Problem sets
 
 Problem sets combining econometric theory and R.

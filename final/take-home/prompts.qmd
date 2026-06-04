@@ -1,0 +1,319 @@
+---
+title: "Final exam"
+subtitle: "EC607"
+editor:
+  render-on-save: true
+format:
+  html:
+    toc: true
+    number-sections: false
+    code-line-numbers: true
+    embed-resources: true
+    self-contained: true
+    theme:
+      dark: [superhero, ed.scss]
+      light: [cosmo, ed.scss]
+
+---
+
+Due Thursday, 11 June (2026) by 11:59 PM Pacific.
+
+
+## Admin
+
+### Rules
+
+You **are not** allowed to work with anyone else. Working with *anyone* else will be considered cheating. You will receive a zero for **both** parts of the final exam and will fail the class.
+
+You *can* use online materials, including LLMs (e.g., ChatGPT/Codex, Claude, and Copilot), books, notes, solutions, *etc*. However, you still must put all of your answers **in your own words**. Copying other people's words is also considered cheating.
+
+Shaoda and Ed will not help you debug your code. We are available for *clarifying* questions only.
+
+### Instructions
+
+Upload your answers to [Canvas](https://canvas.uoregon.edu/) *before* the deadline.
+
+You **must** submit your answers as an HTML or PDF file, built from an RMarkdown (`.Rmd`) or Quarto (`.qmd`) file. You can also submit a link to an HTML page if you prefer that route.
+
+This exam has two main sections.
+
+1. **Short-answer applications.**
+1. **A simulated evaluation.**
+
+Keep answers concise.
+
+For the short-answer section, a few clear sentences or a short derivation will often be enough.
+
+For the simulated evaluation, show the code and output needed to support your answers, but do not include pages of unedited output.
+
+
+## Section 1: Short-answer applications
+
+The questions in this section are intentionally written as short, research-design problems. When relevant, state any extra assumptions you need for your answer.
+
+[]{.num} A city wants to know whether legal representation (_i.e._, lawyers) for tenants in eviction court reduces the probability of eviction. The city's analysis compares tenants _who had a lawyer_ to tenants _who appeared without a lawyer_.
+
+a. Using potential outcomes, decompose this comparison into a treatment-effect component and a selection-bias component.
+
+b. Give one reason the selection-bias component might be positive and one reason it might be negative in this setting.
+
+c. Describe an ideal experiment that would target the causal question without changing the policy being studied too much.
+
+[]{.num} A local group of lawyers volunteers to help tenants in eviction court. Because there are more eligible tenants than lawyers, the city randomly contacts a subset of the at-risk tenants to receive information about this volunteer group.
+
+Some tenants who receive the information about the volunteer group do not end up receiving legal representation, but many do. Some tenants who do not receive the information find representation elsewhere.
+
+a. Suppose the city compares eviction outcomes by representation—_i.e._, comparing the outcomes of represented tenants to outcomes of unrepresented tenants. What does this comparison estimate?
+
+b. Suppose the city compares eviction outcomes by random-assignment status—_i.e._, comparing the outcomes of tenants randomly informed about the volunteer group to outcomes of the uninformed group. What does this comparison estimate?
+
+c. Someone suggests that the city use this randomized information about the volunteer group as an instrument for legal representation. What treatment effect does 2SLS try to recover?
+
+d. Does this proposed 2SLS regression compare represented tenants to unrepresented tenants in general? Explain.
+
+e. Explain whether the proposed instrument satisfies the three requirements for an instrument in a 2SLS regression.
+
+[]{.num} A researcher estimates a regression of wages on education and many covariates. She says, "I am not worried about causality; least squares estimates the CEF, and the CEF is causal."
+
+Explain what is right and wrong in her statement.
+
+[]{.num} You want to estimate the effect of a job-training program on earnings. You observe the following variables:
+
+- _age_: the worker's age at the start of the training;
+- _pre-program ability score_: the worker's ability (on a standardized test) before the training program began;
+- _post-program ability score_: the worker's ability (on a standardized test) after the training program concluded;
+- _industry_: the worker's industry six months after the training;
+- _employed_: whether the worker is employed six months after the training;
+- _caseworker_: the caseworker who encouraged training participation.
+
+For each variable, say whether you would usually include it as a control, exclude it, or think more carefully before deciding. Explain your reasoning using the ideas of omitted-variable bias, bad controls, and proxy variables.
+
+[]{.num} A colleague draws the following DAG for the effect of treatment **D** on outcome **Y**:
+```{mermaid}
+flowchart LR
+    D --> Y
+    D --> A
+    A --> Y
+    D --> B
+    Y --> B
+    C --> D
+    C --> Y
+    G --> F
+    G --> Y
+    E --> F
+    E --> D
+```
+
+a. Which variables are confounders, mediators, and colliders?
+
+b. What control set would you use if your goal is the total effect of **D** on **Y**?
+
+c. What control set would you use if your goal is the direct effect of **D** on **Y**?
+
+d. What happens if you condition on **F**?
+
+[]{.num} A matching estimator pairs each treated person (for some arbitrary treatment) with the nearest untreated person using _estimated_ propensity scores. The distributions of estimated propensity-scores overlap almost perfectly. However, after matching the treated and control groups still differ considerably on several variables.
+
+a. Is this mismatch between treated and control groups a problem? _Hint:_ Consider the propensity-score theorem.
+
+b. What would you check or change before trusting the estimate?
+
+c. Suppose we trust the estimate. What kind of treatment effect does it recover?
+
+[]{.num} A researcher estimates two propensity-score weighting estimators:
+
+1. treated observations receive weight $1/\widehat p(X_i)$ and untreated observations receive weight $1/(1-\widehat p(X_i))$;
+1. treated observations receive weight $1$ and untreated observations receive weight $\widehat p(X_i)/(1-\widehat p(X_i))$.
+
+a. Explain which estimand each estimator is trying to recover.
+
+b. Is the _overlap_ requirement different for the two approaches? Explain why or why not.
+
+[]{.num} A city randomly mails letters encouraging households to join an energy-efficiency program. The letters increase program participation, but households can decide whether to join. Treatment effects are likely heterogeneous: households with old appliances save more energy than households with new appliances.
+
+a. Why is the first stage not sufficient to prove the IV design is valid?
+
+b. Why would we expect the 2SLS estimate to differ from the ATE? Under what conditions would the two estimates be equal?
+
+c. Suppose the letter also includes energy-saving tips. Which IV assumption(s) is threatened?
+
+[]{.num} A paper has two valid instruments for the same treatment. Instrument $Z_1$ mostly changes treatment status for low-income households. Instrument $Z_2$ mostly changes treatment status for high-income households. The two IV estimates are very different.
+
+Explain why this difference might be exactly what the theory predicts, even if both instruments are valid. What would be misleading about averaging the two estimates and calling the result "the treatment effect"?
+
+[]{.num} A scholarship program gives aid to students whose test score is at least 70. Students know the cutoff and can retake the test. Near 70, you find (i) a large jump in scholarship receipt, (ii) a large jump in parental education, and (iii) bunching just above 70.
+
+a. Is this RD sharp or fuzzy? Explain your answer.
+
+b. Which pieces of evidence threaten the RD design? Explain your answer.
+
+[]{.num} In an RD application, a quadratic specification estimated on the full sample (large bandwidth) gives a large statistically significant treatment effect. A local linear specification using observations close to the cutoff (small bandwidth) gives a much smaller and statistically insignificant estimate.
+
+How should the researcher think about this disagreement?
+
+[]{.num} A researcher runs a simulation with 10,000 samples from a known DGP. Each iteration uses the same estimator to estimate the same parameter—just on a different sample drawn from the DGP. The average estimate is close to the true value, but 95 percent confidence intervals only cover the true value 80 percent of the time.
+
+What is the likely culprit for the discrepancy between the expected coverage rate and the observed coverage rate?
+
+[]{.num} A development organization runs a randomized experiment where treatment is randomized at the village level. Across the 30 villages in the study, they observe outcomes for approximately 20,000 individuals. A colleague says, "With 20,000 observations and a randomized treatment, IID standard errors should be fine."
+
+a. Explain why this argument is wrong.
+
+b. Explain how you could use a permutation test in this setting.
+
+c. Would bootstrapping work in this case? Explain.
+
+[]{.num} A researcher studies the effect of an anti-bullying curriculum on students' mental health. Treated students and control students are in the same classes and interact every day.
+
+a. Which part of the potential-outcomes framework is threatened?
+
+b. How would this threat change the meaning of $Y_{1i}$ and $Y_{0i}$?
+
+c. Explain how you might update the proposed research design and analysis to make the causal question clearer.
+
+[]{.num} A classmate tells you that AI can solve the fundamental problem of causal inference. They argue that given AI's incredible power to learn from data and predict outcomes, it is trivial to estimate the counterfactual outcome for any observed potential outcome.
+
+What is your response?
+
+
+## Section 2: A simulated evaluation
+
+In this section, you will build and analyze a simulated dataset. The goal is not to perfectly mimic reality. The goal is to use a controlled environment to show that you understand how research designs work, what they identify, and how inference should respond to the data-generating process.
+
+### Background
+
+A state university wants to evaluate a summer bridge program for incoming students. The program offers advising, peer mentoring, and a short math-prep course before the fall term. The outcome of interest is first-year GPA.
+
+Students become *eligible* for a strong encouragement to attend the bridge program if their placement-test score is above a cutoff. Eligibility is not the same as attendance: some eligible students do not attend, and a few ineligible students find their way into the program.
+
+Assume the econometrician observes $X$, $R$, $Z$, $D$, $Y$, and $M$. The econometrician does not observe $U$.
+
+### The DGP
+
+Use the following DGP. You may choose your own coding style, but keep the substantive structure intact.
+
+- There are $n = 5{,}000$ students.
+- For student $i$:
+  $$
+  X_i \sim N(0, 1),
+  \qquad
+  U_i \sim N(0, 1),
+  \qquad
+  R_i = 0.7X_i + \nu_i,
+  \qquad
+  \nu_i \sim N(0, 1).
+  $$
+- Eligibility is determined by the running variable:
+  $$
+  Z_i = 1\{R_i \geq 0\}.
+  $$
+- Program attendance is determined by a latent attendance index:
+  $$
+  D^\ast_i =
+    -0.2
+    + 0.8Z_i
+    + 0.4X_i
+    + 0.5U_i
+    + \xi_i,
+  \qquad
+  \xi_i\sim N(0, 1),
+  $$
+  and
+  $$
+  D_i = 1\{D^\ast_i \geq 0\}.
+  $$
+- Treatment effects are heterogeneous:
+  $$
+  \tau_i = 0.25 + 0.10U_i.
+  $$
+- First-year GPA is generated by
+  $$
+  Y_i =
+    2.4
+    + \tau_iD_i
+    + 0.35X_i
+    + 0.40U_i
+    + 0.10R_i
+    + \varepsilon_i,
+  $$
+  where $\varepsilon_i\sim N(0, 0.5^2)$.
+- A post-treatment measure of study habits is generated by
+  $$
+  M_i = 0.4D_i + 0.3X_i + 0.3U_i + \eta_i,
+  $$
+  where $\eta_i\sim N(0, 1)$.
+
+Use `set.seed(6072026)` for the main simulated dataset.
+
+### The big picture
+
+[]{.num} State the causal question in this application. What is the ideal experiment?
+
+[]{.num} What is the ATE here? (I want a number.)
+
+[]{.num} Draw a DAG for the DGP. Your DAG should include at least $X$, $U$, $R$, $Z$, $D$, $M$, and $Y$. You can draw it by hand and include an image, use a package like [`ggdag`](https://r-causal.github.io/ggdag/)/[DAGitty](https://www.dagitty.net/) or [_mermaid_](https://quarto.org/docs/authoring/diagrams.html).
+
+[]{.num} Which variables in the DGP are observed by the econometrician? Which variables are unobserved? Explain why this matters for each of the following approaches:
+
+- regression with controls;
+- matching or propensity-score weighting;
+- IV using $Z$ as an instrument;
+- RD using $R$ as the running variable.
+
+### Data time
+
+[]{.num} Simulate one dataset from the DGP. Report basic summary statistics for $Y$, $D$, $Z$, $R$, $X$, and $M$.
+
+[]{.num} Estimate the naive regression
+$$
+Y_i = \beta_0 + \beta_1 D_i + e_i.
+$$
+Report the estimate of $\beta_1$ and interpret it. Should it recover the ATE from the DGP? Explain.
+
+[]{.num} Add controls for $X$ and $R$. Compare the two estimates: naive OLS and OLS with observed controls.
+
+What sources of bias remain after each specification?
+
+[]{.num} Now add the post-treatment variable $M$ to the richest regression above. What happens to the estimated coefficient on $D$? Should this coefficient be interpreted as the total effect of program attendance? Explain.
+
+### The RD and IV design
+
+[]{.num} Make the three standard RD diagnostic figures:
+
+- treatment or attendance by the running variable;
+- outcome by the running variable;
+- density or counts of the running variable near the cutoff.
+
+Briefly interpret each figure.
+
+[]{.num} Is the RD sharp or fuzzy in this DGP? Explain using both the DGP and your first-stage figure.
+
+[]{.num} Estimate a local reduced-form effect of $Z$ on $Y$ near the cutoff. Estimate a first-stage effect of $Z$ on $D$ near the cutoff using a bandwidth and functional form that you think make sense. Briefly justify your choices.
+
+[]{.num} Estimate the fuzzy-RD/IV effect of program attendance on first-year GPA near the cutoff. You can use a 2SLS function or compute the ratio from the reduced form and first stage.
+
+Interpret the estimate. To whom is this estimate local?
+
+[]{.num} Compare the fuzzy-RD/IV estimate to the OLS. Why should these estimates differ in this DGP?
+
+### Inference
+
+[]{.num} For your preferred fuzzy-RD/IV specification, report standard errors based upon an estimator that you think makes sense in this setting. Explain your choice.
+
+[]{.num} Use a bootstrap to approximate uncertainty for the fuzzy-RD/IV estimate. Specifically, run your bootstrap for *two* different bandwidths.
+
+[]{.num} How does the standard error implied by the two different bandwidths change?
+
+[]{.num} Should the actual standard error of your estimate incorporate information from _both_ bootstraps? Explain.
+
+### Reflection
+
+[]{.num} Write a short paragraph evaluating the bridge-program evidence from this simulated exercise. Your paragraph should explain
+
+- which estimate you would emphasize (and why);
+- which treatment effect you think that estimate is targeting;
+- whether the targeted effect is policy relevant;
+- which identifying assumptions are most important for that interpretation;
+- how your inference and bandwidth choices affect the strength of your conclusion.
+
+Do not just report numbers. Tell us what you learned about the credibility and limits of the research design.
